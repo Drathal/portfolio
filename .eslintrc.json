@@ -5,24 +5,32 @@
     "es6": true,
     "browser": true
   },
+  "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "sourceType": "module",
-    "ecmaVersion": 2020
+    "ecmaVersion": 2020,
+    "ecmaFeatures": {
+      "jsx": true
+    }
   },
   "settings": {
     "react": {
       "version": "detect"
     }
   },
-  "plugins": ["prettier", "react"],
+  "plugins": ["@typescript-eslint", "prettier", "react"],
   "extends": [
     "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
     "plugin:prettier/recommended",
     "plugin:react/recommended"
   ],
   "rules": {
     "react/react-in-jsx-scope": "off",
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
-    "react/prop-types": "off"
+    "react/prop-types": "off",
+    "react/jsx-filename-extension": [
+      1,
+      { "extensions": [".js", ".jsx", ".ts", ".tsx"] }
+    ]
   }
 }

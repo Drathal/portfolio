@@ -1,7 +1,13 @@
+import { FC } from 'react'
 import Head from 'next/head'
+
 import Header from './Header'
 
-export default function Layout({ children, pageTitle }) {
+interface IProps {
+  pageTitle: string
+}
+
+const Layout: FC<IProps> = ({ children, pageTitle }) => {
   return (
     <>
       <Head>
@@ -16,3 +22,5 @@ export default function Layout({ children, pageTitle }) {
     </>
   )
 }
+
+export default Layout
