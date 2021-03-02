@@ -13,10 +13,12 @@
   "dependencies": {
     "gray-matter": "^4.0.2",
     "next": "10.0.7",
+    "otion": "^0.6.2",
     "raw-loader": "^4.0.2",
     "react": "17.0.1",
     "react-dom": "17.0.1",
-    "react-markdown": "^5.0.3"
+    "react-markdown": "^5.0.3",
+    "react-otion": "^0.6.2"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.11.9",

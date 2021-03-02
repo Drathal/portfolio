@@ -337,6 +337,11 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
+"@emotion/hash@^0.8.0":
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/@emotion/hash/-/hash-0.8.0.tgz#bbbff68978fefdbe68ccb533bc8cbe1d1afb5413"
+  integrity sha512-kBJtf7PH6aWwZ6fka3zQ0p6SBYzx4fl1LoZXE2RrnYST9Xljm7WfKJrU4g/Xr3Beg72MLrp1AWNUmuYJTL7Cow==
+
 "@eslint/eslintrc@^0.4.0":
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/@eslint/eslintrc/-/eslintrc-0.4.0.tgz#99cc0a0584d72f1df38b900fb062ba995f395547"
@@ -4576,6 +4581,15 @@ os-browserify@^0.3.0:
   resolved "https://registry.npmjs.org/os-browserify/-/os-browserify-0.3.0.tgz"
   integrity sha1-hUNzx/XCMVkU/Jv8a9gjj92h7Cc=
 
+otion@^0.6.2:
+  version "0.6.2"
+  resolved "https://registry.yarnpkg.com/otion/-/otion-0.6.2.tgz#5ccfb6aa919b7f04137f0538abd1bba228b9a633"
+  integrity sha512-f99O7+MHnjf3QYwYN3N16w3CVw9o2K1P1haeGtaMyPacBPi5Y0NV8NrPldyYoF1uBAln21wEnIiJHAZ/MldO2g==
+  dependencies:
+    "@emotion/hash" "^0.8.0"
+    csstype "^3.0.2"
+    tiny-css-prefixer "^1.1.4"
+
 p-each-series@^2.1.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/p-each-series/-/p-each-series-2.2.0.tgz#105ab0357ce72b202a8a8b94933672657b5e2a9a"
@@ -5010,6 +5024,11 @@ react-markdown@^5.0.3:
     unified "^9.0.0"
     unist-util-visit "^2.0.0"
     xtend "^4.0.1"
+
+react-otion@^0.6.2:
+  version "0.6.2"
+  resolved "https://registry.yarnpkg.com/react-otion/-/react-otion-0.6.2.tgz#20e138457d14bf7ce82ca6c09f2c2465127879dc"
+  integrity sha512-1bxseqS+YvW+lwoU1C9Fh1yo9/phsAjlBAgUsUuouDgFgpVxRKzpUqzemQX1PLA1WgPdSxtqUpuhupzGJw9N1A==
 
 react-refresh@0.8.3:
   version "0.8.3"
@@ -5942,6 +5961,11 @@ timers-browserify@^2.0.4:
   integrity sha512-9phl76Cqm6FhSX9Xe1ZUAMLtm1BLkKj2Qd5ApyWkXzsMRaA7dgr81kf4wJmQf/hAvg8EEyJxDo3du/0KlhPiKQ==
   dependencies:
     setimmediate "^1.0.4"
+
+tiny-css-prefixer@^1.1.4:
+  version "1.1.4"
+  resolved "https://registry.yarnpkg.com/tiny-css-prefixer/-/tiny-css-prefixer-1.1.4.tgz#b96a0aa6b312227d996e9c303645e3ae2f194086"
+  integrity sha512-QLnDGLUmMkNlSuWogBaSu92uQnvWhcQwUc+MG8L4YgBkjSmBkAz29pTq+8Rh3YWR1TwPrjuZDKWzO7v4PXkipQ==
 
 tmpl@1.0.x:
   version "1.0.4"
