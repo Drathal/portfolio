@@ -2,7 +2,7 @@ import Link from 'next/link'
 import matter from 'gray-matter'
 import ReactMarkdown from 'react-markdown'
 
-import { projectSlugs } from '@utils'
+import { projectSlugs } from '../../utils'
 import Layout from '../../components/Layout'
 
 export default function Project({ siteTitle, frontmatter, markdownBody }) {
