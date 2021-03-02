@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Header from './Header'
 
-export default function Layout({ children, pageTitle, ...props }) {
+export default function Layout({ children, pageTitle }) {
   return (
     <>
       <Head>
@@ -9,7 +9,7 @@ export default function Layout({ children, pageTitle, ...props }) {
         <title>{pageTitle}</title>
       </Head>
       <section className="layout">
-      <Header />
+        <Header />
         <div className="content">{children}</div>
       </section>
       <footer>Built by me!</footer>

@@ -1,0 +1,28 @@
+{
+  "root": true,
+  "env": {
+    "node": true,
+    "es6": true,
+    "browser": true
+  },
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaVersion": 2020
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "plugins": ["prettier", "react"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:prettier/recommended",
+    "plugin:react/recommended"
+  ],
+  "rules": {
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "react/prop-types": "off"
+  }
+}
