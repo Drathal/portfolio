@@ -2,7 +2,7 @@ import Link from 'next/link'
 import matter from 'gray-matter'
 import ReactMarkdown from 'react-markdown'
 
-import { projectSlugs } from '../../utils'
+import { slugsFromFilenames } from '../../utils'
 import Layout from '../../components/Layout'
 
 export default function Project({ siteTitle, frontmatter, markdownBody }) {
@@ -41,7 +41,10 @@ export async function getStaticProps({ ...ctx }) {
 }
 
 export async function getStaticPaths() {
-  const paths = projectSlugs.map((slug) => `/project/${slug}`)
+  const slugs = slugsFromFilenames(
+    require.context('../../projects', true, /\.md$/)
+  )
+  const paths = slugs.map((slug) => `/project/${slug}`)
 
   return {
     paths,
