@@ -1,12 +1,21 @@
+import { FC } from 'react'
 import Link from 'next/link'
+import { GetStaticProps, GetStaticPaths } from 'next'
 import matter from 'gray-matter'
 import ReactMarkdown from 'react-markdown'
 
+import { FrontmatterProject } from '../../projects/interface'
 import { slugsFromFilenames } from '../../utils'
 import Layout from '../../components/Layout'
 
-export default function Project({ siteTitle, frontmatter, markdownBody }) {
-  if (!frontmatter) return <></>
+interface IProps {
+  siteTitle: string
+  frontmatter: FrontmatterProject
+  markdownBody: string
+}
+
+const Project: FC<IProps> = ({ siteTitle, frontmatter, markdownBody }) => {
+  if (!frontmatter) return null
 
   return (
     <Layout pageTitle={`${siteTitle} | ${frontmatter.title}`}>
@@ -15,7 +24,6 @@ export default function Project({ siteTitle, frontmatter, markdownBody }) {
       </Link>
       <article>
         <h1>{frontmatter.title}</h1>
-        <p>By: {frontmatter.author}</p>
         <div>
           <ReactMarkdown source={markdownBody} />
         </div>
@@ -24,8 +32,16 @@ export default function Project({ siteTitle, frontmatter, markdownBody }) {
   )
 }
 
-export async function getStaticProps({ ...ctx }) {
-  const { projectname } = ctx.params
+interface GetStaticPropsParams {
+  params: {
+    projectname: string
+  }
+}
+
+export const getStaticProps: GetStaticProps = async ({
+  params
+}: GetStaticPropsParams) => {
+  const { projectname } = params
 
   const content = await import(`../../projects/${projectname}.md`)
   const config = await import(`../../siteconfig.json`)
@@ -36,18 +52,22 @@ export async function getStaticProps({ ...ctx }) {
       siteTitle: config.title,
       frontmatter: data.data,
       markdownBody: data.content
-    }
+    } as IProps
   }
 }
 
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths = async () => {
   const slugs = slugsFromFilenames(
     require.context('../../projects', true, /\.md$/)
   )
-  const paths = slugs.map((slug) => `/project/${slug}`)
+
+  console.log(slugs)
+  const paths = slugs.map((slug: string) => `/project/${slug}`)
 
   return {
     paths,
     fallback: false
   }
 }
+
+export default Project

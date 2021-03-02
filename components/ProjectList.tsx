@@ -1,6 +1,13 @@
+import { FC } from 'react'
 import Link from 'next/link'
 
-export default function ProjectList({ projects }) {
+import { ProjectType } from '../projects/interface'
+
+interface IProps {
+  projects: ProjectType[]
+}
+
+const ProjectList: FC<IProps> = ({ projects }) => {
   if (!projects) return null
 
   return (
@@ -20,3 +27,5 @@ export default function ProjectList({ projects }) {
     </div>
   )
 }
+
+export default ProjectList
