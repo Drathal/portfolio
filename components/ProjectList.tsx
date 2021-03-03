@@ -59,7 +59,7 @@ const ProjectList: FC<IProps> = ({ projects }) => {
                           className={classes.chip}
                           size="small"
                           label={project.frontmatter.year}
-                          color="primary"
+                          color="secondary"
                         />
                         <CardMedia
                           className={classes.media}
