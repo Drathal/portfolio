@@ -1,6 +1,5 @@
 import { FC } from 'react'
 import { GetStaticProps } from 'next'
-import { css, keyframes } from 'otion'
 
 import { projectListFromDirectory } from '../utils'
 import Layout from '../components/Layout'
@@ -13,26 +12,11 @@ interface IProps {
   projects: ProjectType[]
 }
 
-const pulse = keyframes({
-  from: { opacity: 1 },
-  to: { opacity: 0 }
-})
-
 const Index: FC<IProps> = ({ projects, title, description }) => {
   return (
     <Layout pageTitle={title}>
       <h1 className="title">Welcome to my blog!</h1>
-      <p className={css({ color: 'blue' })}>{description}</p>
-      <p
-        className={css({
-          color: 'blue',
-          ':hover': {
-            animation: `${pulse} 3s infinite alternate`
-          }
-        })}
-      >
-        CSS TEST
-      </p>
+      <p>{description}</p>
       <main>
         <ProjectList projects={projects} />
       </main>

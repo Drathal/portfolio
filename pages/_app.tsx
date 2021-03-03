@@ -1,15 +1,30 @@
+import React, { useEffect, useState, ReactNode, CSSProperties } from 'react'
 import { AppProps } from 'next/app'
-import { hydrate, setup } from 'otion'
 
-import options from '../otion.config'
+import { ThemeProvider } from '../theme'
+import styles from '../styles/App.module.css'
 
-if (typeof window !== 'undefined') {
-  setup(options)
-  hydrate()
+const MyApp = ({ Component, pageProps }: AppProps): ReactNode => {
+  const [style, setStyle] = useState<CSSProperties>({
+    visibility: 'hidden'
+  })
+  useEffect(() => {
+    const jssStyles = document.querySelector('#jss-server-side')
+    if (jssStyles) {
+      jssStyles.parentElement.removeChild(jssStyles)
+    }
+    setStyle({})
+  }, [])
+
+  return (
+    <div className={styles['app-container']} style={style}>
+      <ThemeProvider>
+        <div className={styles['content-container']}>
+          <Component {...pageProps} />
+        </div>
+      </ThemeProvider>
+    </div>
+  )
 }
-
-const MyApp = ({ Component, pageProps }: AppProps): JSX.Element => (
-  <Component {...pageProps} />
-)
 
 export default MyApp

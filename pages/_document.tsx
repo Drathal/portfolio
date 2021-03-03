@@ -1,24 +1,45 @@
-import Document, { DocumentContext, DocumentInitialProps } from 'next/document'
-import { setup } from 'otion'
-import {
-  filterOutUnusedRules,
-  getStyleElement,
-  VirtualInjector
-} from 'react-otion/server'
-
-import options from '../otion.config'
+import { Children } from 'react'
+import Document, { Html, Head, Main, NextScript } from 'next/document'
+import { ServerStyleSheets } from '@material-ui/core/styles'
+import { lightTheme } from '../theme'
 
 export default class MyDocument extends Document {
-  static async getInitialProps({
-    renderPage
-  }: DocumentContext): Promise<DocumentInitialProps> {
-    const injector = VirtualInjector()
-    setup({ ...options, injector })
+  render(): JSX.Element {
+    return (
+      <Html lang="en">
+        <Head>
+          <meta name="theme-color" content={lightTheme.palette.primary.main} />
+          <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css?family=Lato:300,400,500,700&display=swap"
+          />
+          <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,400,500,700&display=swap"
+          />
+        </Head>
+        <body>
+          <Main />
+          <NextScript />
+        </body>
+      </Html>
+    )
+  }
+}
 
-    const page = await renderPage()
-    return {
-      ...page,
-      styles: getStyleElement(filterOutUnusedRules(injector, page.html))
-    }
+MyDocument.getInitialProps = async (ctx) => {
+  const sheets = new ServerStyleSheets()
+  const originalRenderPage = ctx.renderPage
+
+  ctx.renderPage = () =>
+    originalRenderPage({
+      enhanceApp: (App) => (props) => sheets.collect(<App {...props} />)
+    })
+
+  const initialProps = await Document.getInitialProps(ctx)
+
+  return {
+    ...initialProps,
+    styles: [...Children.toArray(initialProps.styles), sheets.getStyleElement()]
   }
 }

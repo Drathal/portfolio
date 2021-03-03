@@ -61,7 +61,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
     require.context('../../projects', true, /\.md$/)
   )
 
-  console.log(slugs)
   const paths = slugs.map((slug: string) => `/project/${slug}`)
 
   return {
