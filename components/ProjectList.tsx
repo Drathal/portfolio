@@ -26,18 +26,16 @@ interface IProps {
 
 const useStyles = makeStyles({
   root: {
-    maxWidth: 404
+    maxWidth: 400
   },
   media: {
-    height: 250
+    height: 300
   },
   chip: {
     float: 'right',
     margin: '1rem 0.5rem',
     padding: '.5rem'
-  },
-  list: {},
-  listitem: {}
+  }
 })
 
 const ProjectList: FC<IProps> = ({ projects }) => {
@@ -48,31 +46,39 @@ const ProjectList: FC<IProps> = ({ projects }) => {
     <Timeline align="alternate">
       {projects &&
         projects.map((project) => {
-          const projectlink = project.frontmatter.link
+          const projectLink = project.frontmatter.link
             ? project.frontmatter.link
             : `/project/${project.slug}`
 
-          const projecttarget = project.frontmatter.link ? '_blank' : null
+          const projectTarget = project.frontmatter.link ? '_blank' : null
 
           return (
-            <TimelineItem key={project.slug} className={classes.listitem}>
+            <TimelineItem key={project.slug}>
               <TimelineOppositeContent>
-                <Typography variant="body2" color="textSecondary">
-                  {project.frontmatter.year}
-                </Typography>
-                <Typography variant="h5" component="h2">
-                  {project.frontmatter.title}
-                </Typography>
-                <Typography gutterBottom variant="h6" component="h3">
-                  {project.frontmatter.subtitle}
-                </Typography>
-                <Typography
-                  variant="body2"
-                  color="textSecondary"
-                  component="span"
+                <Link
+                  href={{
+                    pathname: projectLink
+                  }}
                 >
-                  <ReactMarkdown source={project.markdownBody} />
-                </Typography>
+                  <a target={projectTarget}>
+                    <Typography variant="body2" color="textSecondary">
+                      {project.frontmatter.year}
+                    </Typography>
+                    <Typography variant="h5" component="h2">
+                      {project.frontmatter.title}
+                    </Typography>
+                    <Typography gutterBottom variant="h6" component="h3">
+                      {project.frontmatter.subtitle}
+                    </Typography>
+                    <Typography
+                      variant="body2"
+                      color="textSecondary"
+                      component="span"
+                    >
+                      <ReactMarkdown source={project.markdownBody} />{' '}
+                    </Typography>
+                  </a>
+                </Link>
               </TimelineOppositeContent>
               <TimelineSeparator>
                 <TimelineDot color="primary" />
@@ -81,10 +87,10 @@ const ProjectList: FC<IProps> = ({ projects }) => {
               <TimelineContent>
                 <Link
                   href={{
-                    pathname: projectlink
+                    pathname: projectLink
                   }}
                 >
-                  <a target={projecttarget}>
+                  <a target={projectTarget}>
                     <Card
                       className={classes.root}
                       raised={true}
@@ -104,6 +110,9 @@ const ProjectList: FC<IProps> = ({ projects }) => {
                         />
                       </CardActionArea>
                     </Card>
+                    <br />
+                    <br />
+                    <br />
                   </a>
                 </Link>
               </TimelineContent>

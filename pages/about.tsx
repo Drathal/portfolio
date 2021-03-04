@@ -8,7 +8,7 @@ interface IProps {
   description: string
 }
 
-const About: FC<IProps> = ({ title, description }) => {
+const About: FC<IProps> = ({ title }) => {
   return (
     <Layout pageTitle={`${title} | About`}>
       <h1 className="title">About me</h1>
