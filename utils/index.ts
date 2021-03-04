@@ -9,6 +9,9 @@ interface ProjectContext {
   default: string
 }
 
+const sortProjectByYear = (a: ProjectType, b: ProjectType) =>
+  a.frontmatter.year < b.frontmatter.year ? 1 : -1
+
 export const projectListFromDirectory = (
   ctx: __WebpackModuleApi.RequireContext
 ): ProjectType[] => {
@@ -26,6 +29,8 @@ export const projectListFromDirectory = (
       slug
     } as ProjectType
   })
+
+  data.sort(sortProjectByYear)
 
   return data
 }

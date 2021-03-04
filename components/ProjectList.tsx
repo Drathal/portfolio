@@ -6,8 +6,16 @@ import { makeStyles } from '@material-ui/core/styles'
 import Chip from '@material-ui/core/Chip'
 import Card from '@material-ui/core/Card'
 import CardActionArea from '@material-ui/core/CardActionArea'
-import CardContent from '@material-ui/core/CardContent'
 import CardMedia from '@material-ui/core/CardMedia'
+
+import Timeline from '@material-ui/lab/Timeline'
+import TimelineItem from '@material-ui/lab/TimelineItem'
+import TimelineSeparator from '@material-ui/lab/TimelineSeparator'
+import TimelineConnector from '@material-ui/lab/TimelineConnector'
+import TimelineContent from '@material-ui/lab/TimelineContent'
+import TimelineOppositeContent from '@material-ui/lab/TimelineOppositeContent'
+import TimelineDot from '@material-ui/lab/TimelineDot'
+
 import Typography from '@material-ui/core/Typography'
 
 import { ProjectType } from '../projects/interface'
@@ -18,29 +26,18 @@ interface IProps {
 
 const useStyles = makeStyles({
   root: {
-    maxWidth: 400
+    maxWidth: 404
   },
   media: {
-    height: 300
+    height: 250
   },
   chip: {
     float: 'right',
     margin: '1rem 0.5rem',
     padding: '.5rem'
   },
-  list: {
-    margin: 0,
-    padding: 0,
-    'list-style-type': 'none',
-    display: 'inline-flex',
-    'flex-wrap': 'wrap',
-    gap: '2rem'
-  },
-  listitem: {
-    margin: 0,
-    padding: 0,
-    flex: 'auto'
-  }
+  list: {},
+  listitem: {}
 })
 
 const ProjectList: FC<IProps> = ({ projects }) => {
@@ -48,7 +45,7 @@ const ProjectList: FC<IProps> = ({ projects }) => {
   if (!projects) return null
 
   return (
-    <ul className={classes.list}>
+    <Timeline align="alternate">
       {projects &&
         projects.map((project) => {
           const projectlink = project.frontmatter.link
@@ -58,49 +55,62 @@ const ProjectList: FC<IProps> = ({ projects }) => {
           const projecttarget = project.frontmatter.link ? '_blank' : null
 
           return (
-            <li key={project.slug} className={classes.listitem}>
-              <Link
-                href={{
-                  pathname: projectlink
-                }}
-              >
-                <a target={projecttarget}>
-                  <Card className={classes.root}>
-                    <CardActionArea>
-                      <Chip
-                        className={classes.chip}
-                        size="small"
-                        label={project.frontmatter.year}
-                        color="secondary"
-                      />
-                      <CardMedia
-                        className={classes.media}
-                        image={`/thumbs/${project.frontmatter.thumb}`}
-                        title="Contemplative Reptile"
-                      />
-                      <CardContent>
-                        <Typography variant="h5" component="h2">
-                          {project.frontmatter.title}
-                        </Typography>
-                        <Typography gutterBottom variant="h6" component="h3">
-                          {project.frontmatter.subtitle}
-                        </Typography>
-                        <Typography
-                          variant="body2"
-                          color="textSecondary"
-                          component="span"
-                        >
-                          <ReactMarkdown source={project.markdownBody} />
-                        </Typography>
-                      </CardContent>
-                    </CardActionArea>
-                  </Card>
-                </a>
-              </Link>
-            </li>
+            <TimelineItem key={project.slug} className={classes.listitem}>
+              <TimelineOppositeContent>
+                <Typography variant="body2" color="textSecondary">
+                  {project.frontmatter.year}
+                </Typography>
+                <Typography variant="h5" component="h2">
+                  {project.frontmatter.title}
+                </Typography>
+                <Typography gutterBottom variant="h6" component="h3">
+                  {project.frontmatter.subtitle}
+                </Typography>
+                <Typography
+                  variant="body2"
+                  color="textSecondary"
+                  component="span"
+                >
+                  <ReactMarkdown source={project.markdownBody} />
+                </Typography>
+              </TimelineOppositeContent>
+              <TimelineSeparator>
+                <TimelineDot color="primary" />
+                <TimelineConnector />
+              </TimelineSeparator>
+              <TimelineContent>
+                <Link
+                  href={{
+                    pathname: projectlink
+                  }}
+                >
+                  <a target={projecttarget}>
+                    <Card
+                      className={classes.root}
+                      raised={true}
+                      variant="outlined"
+                    >
+                      <CardActionArea>
+                        <Chip
+                          className={classes.chip}
+                          size="small"
+                          label={project.frontmatter.year}
+                          color="secondary"
+                        />
+                        <CardMedia
+                          className={classes.media}
+                          image={`/thumbs/${project.frontmatter.thumb}`}
+                          title="Contemplative Reptile"
+                        />
+                      </CardActionArea>
+                    </Card>
+                  </a>
+                </Link>
+              </TimelineContent>
+            </TimelineItem>
           )
         })}
-    </ul>
+    </Timeline>
   )
 }
 
