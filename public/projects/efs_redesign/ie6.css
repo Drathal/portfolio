@@ -1,0 +1,36 @@
+body {
+  background: #fff;
+}
+
+.header {
+  background: transparent url(../../images/login/gp_logo.jpg) no-repeat top left;
+}
+
+.loginbox, 
+.wrap, 
+.loginbox-bottom-right, 
+.loginbox-bottom, 
+.loginbox-top-right, 
+.loginbox-top,
+.versiontext,
+.show_installation_details {
+  display: none;
+}
+
+.unsupported {
+  width: 344px;
+  margin: 0px auto;
+  position: relative;
+  top: 30px;
+  border: 3px solid #ccc;
+  display: block;
+}
+.unsupported p {
+  padding: 20px;
+  color: #444;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+}
+
+

@@ -1,0 +1,133 @@
+[
+  {
+    "id": 2,
+    "title": "Adaptive Survey - Bigsky",
+    "subtitle": "Questionnaire Sandbox",
+    "year": "2013",
+    "link": "http://markus-inger.de/sandboxdemo/sandbox/build/bigsky/",
+    "pic": "images/thumbs/responsive_bigsky.jpg"
+  },
+
+  {
+    "id": 4,
+    "title": "Thumb question type ",
+    "subtitle": "Javascript Prototype",
+    "year": "2012",
+    "link": "http://www.markus-inger.de/rotate/index.html",
+    "pic": "images/thumbs/questiontype_thumb.jpg"
+  },
+
+  {
+    "id": 6,
+    "title": "Slider Prototype - jQuery",
+    "subtitle": "Javascript Prototype",
+    "year": "2011",
+    "link": "http://www.markus-inger.de/jQuery.slider/",
+    "pic": "images/thumbs/slider.jpg"
+  },
+  {
+    "id": 7,
+    "title": "Techtalk - Color",
+    "subtitle": "Employee training",
+    "year": "2011",
+    "link": "http://www.markus-inger.de/techtalk/techtalk_color/",
+    "pic": "images/thumbs/techtalk_farben.jpg"
+  },
+  {
+    "id": 8,
+    "title": "Redesign - Listen and Act",
+    "subtitle": "Pure CSS redesign",
+    "year": "2011",
+    "link": "images/listen_act_design.png",
+    "pic": "images/thumbs/listen_act.jpg"
+  },
+  {
+    "id": 9,
+    "title": "Grouping Questiontype - EXTJS",
+    "subtitle": "Pototype",
+    "year": "2010",
+    "link": "http://www.markus-inger.de/dd_prototype/",
+    "pic": "images/thumbs/questiontype_group.jpg"
+  },
+  {
+    "id": 10,
+    "title": "Hotel Website",
+    "subtitle": "Quick Wordpress Layout",
+    "year": "2010",
+    "link": "http://www.haus-schuetze.de/",
+    "pic": "images/thumbs/hotel.jpg"
+  },
+  {
+    "id": 11,
+    "title": "Techtalk - Forms in Reporting+",
+    "subtitle": "Employee training",
+    "year": "2010",
+    "link": "http://markus-inger.de/techtalk/techtalk_forms/",
+    "pic": "images/thumbs/techtalk_forms.jpg"
+  },
+  {
+    "id": 12,
+    "title": "Techtalk - HTML(5)",
+    "subtitle": "Employee training",
+    "year": "2010",
+    "link": "http://markus-inger.de/techtalk/techtalk_html5/",
+    "pic": "images/thumbs/techtalk_html5.jpg"
+  },
+  {
+    "id": 13,
+    "title": "Redesign - Data Voyager",
+    "subtitle": "pure CSS redesign",
+    "year": "2010",
+    "link": "images/DV_new.png",
+    "pic": "images/thumbs/data_voyager.jpg"
+  },
+  {
+    "id": 14,
+    "title": "Redesign - Reporting+",
+    "subtitle": "HTML / CSS / JS",
+    "year": "2010",
+    "link": "images/reporting_new.png",
+    "pic": "images/thumbs/reporting.jpg"
+  },
+  {
+    "id": 15,
+    "title": "Application Icons",
+    "subtitle": "Monochrome Icons",
+    "year": "2010",
+    "link": "images/mono_icons_dark.png",
+    "pic": "images/thumbs/mono_icons.jpg"
+  },
+  {
+    "id": 16,
+    "title": "Simple Website",
+    "subtitle": "Wordpress Template",
+    "year": "2008",
+    "link": "http://satzpro.de",
+    "pic": "images/thumbs/satzpro.jpg"
+  },
+
+  {
+    "id": 19,
+    "title": "Canvas Demo - Javascript",
+    "subtitle": "finger exercise",
+    "year": "2008",
+    "link": "http://www.markus-inger.de/canvas/r2.html",
+    "pic": "images/thumbs/canvasballs.jpg"
+  },
+  {
+    "id": 20,
+    "title": "Feedback Center - Layout",
+    "subtitle": "HTML / CSS Page Template",
+    "year": "2008",
+    "link": "http://www.markus-inger.de/feedback/",
+    "pic": "images/thumbs/feedbackcenter.jpg"
+  },
+  {
+    "id": 21,
+    "title": "Drag & Drop List - MooTools",
+    "subtitle": "Editor Prototype",
+    "year": "2007",
+    "link": "http://www.markus-inger.de/draglist/",
+    "pic": "images/thumbs/drag_tree.jpg"
+  }
+]

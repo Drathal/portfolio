@@ -1,0 +1,330 @@
+    /* fuer EINspaltige Formulare */
+    div.formcolumn { 
+      border: 0;
+      border: 1px solid #ccc;
+    } 
+    
+    /* fuer ZWEIspaltige Formulare */
+    div.formcolumn-l, div.formcolumn-r { 
+      width: 49%;
+      float: left;
+      margin: 0;
+      padding: 0;
+      background-color: transparent;
+      border: 0;
+      border: 1px solid #ccc;
+    }
+    div.formcolumn-r {
+      float: right;
+    }
+      
+    div.formcolumn-l div, div.formcolumn-r div, div.formcolumn div {  
+      margin: 0;
+      padding: 3px 0 3px 0;
+      border: 0;
+      border-top: 1px solid #ccc;
+
+    }    
+        
+    fieldset {
+      margin: 0;
+      padding: 0;
+      border: 0;
+      display: inline;
+    }
+    fieldset legend {
+      display: none;
+    }
+    fieldset label {
+      background-color: transparent;
+      border: 0 !important;
+      margin: 0px;
+      padding: 1px;
+      clear: left;
+    }    
+    fieldset.submitfield {
+      background-color:#FFFFFF;
+      border: 1px solid #ccc;
+      border-top: 0;
+      padding: 3px;
+      margin: 0;
+      display: block;
+    }
+    fieldset.submitfield .submit, fieldset.submitfield .button {
+      float: right;
+      clear: right;
+    }
+    fieldset.submitfield .reset {
+      float: left;
+    }
+    
+    /* Formularlegende  */
+    fieldset.footerlegend {
+      background-color: #FFFFFF;
+      border: 1px solid #ccc;
+      border-bottom: 0;
+      padding: 3px;
+      margin: 6px 0 0 0;
+    }
+    
+    /* Label */
+    label {     
+      text-align: right;
+      font-weight: normal;
+      font-size: 11px;
+      padding: 2px 0;
+      margin: 0;
+      float: left;
+      width: 40%;
+      display: inline;    
+    }
+   
+    /* DIV um Feld und Fehlermeldung */
+    div.field-wrap {
+      display: block !important; 
+      margin: 0 !important;
+      padding: 0 !important;
+      width: auto !important;
+      border: 0 !important;
+      position: relative;
+    }
+    div.field-wrap input, div.field-wrap select, div.field-wrap textarea, div.field-wrap fieldset,div.field-wrap em,div.field-wrap span {
+      margin-left: 15px ;
+      z-index: 1;
+      position: relative;
+    }
+    div.field-wrap fieldset input {
+      margin-left: 0;
+    }   
+    /* Fehlermeldungen */
+    div.alt1 em, div.alt2 em, div.errormsg em {  
+      color: #CC0000;  
+      font-weight: bold;
+      font-style: normal;  
+      padding: 3px;
+      clear: both;   
+      text-align: left;
+      display: block;
+      margin-left: 43%;
+    }
+  
+    /* Fehlermeldungen in Listenform */
+    div.errormsg em ul {
+      margin: 0;
+      padding: 0 0 0 8px;
+      list-style-image: url(../../../images/listarrow.gif) !important;
+      text-align: left;
+    }
+    div.errormsg em li {
+      color: #000000;
+      margin: 0 0 0 0 !important;
+      padding: 0 !important;
+      text-align: left;     
+    }
+    
+    /* Fehlerbehandlung der Labels */
+    .errormsg {
+      clear: both;
+    }  
+    .errormsg label {
+    }
+
+    .marked-field {
+      background-color: #E19376 !important;
+    }
+
+    fieldset.marked-field * {
+      background-color: #E19376;
+    }
+
+    /** Definition der Formularelemente **/
+    /* Radiobutton, Checkbox */
+    .radio, .checkbox {
+      float: left;
+    }
+    
+    /* einzeiliges Textfeld, mehrzeiliges Textfeld, Datei-Upload, mehrzeilige Auswahlliste */
+    .text, .file, .select-mul {
+      width: 220px;
+    /*  background-color: #D6E5F4;
+      border: 1px solid #ccc;*/
+    }
+    
+    /* einzeilge Auswahlliste */
+    .select {
+      /*background-color: #D6E5F4;
+      border: 1px solid #ccc;    */
+    }
+    
+    /* Labels für Radiobuttons und Checkboxen */
+    .labradio, .labcheck {
+      text-align: left;
+      line-height: 20px;
+      float: left;
+      width: auto;
+      margin: 0;      
+    }
+    
+    /* Kalender Auswahlliste Tag und Monat */    
+    .select.cal-day, .select.cal-month {
+      width: 44px;
+    }
+    
+    /* Kalender Auswahlliste Jahr */
+    .select.cal-year {
+      width: 80px;
+    }
+    
+    /* bereits ausgewaehlte Items in mehrzeiligen Auswahlliste */
+    label span.select-chosen {
+      color: #888888;
+      font-size: 9px;
+      font-weight: 600;
+    } 
+       
+    /* Zeilencontainer, Fehlermeldungcontainer */ 
+    div.alt1, div.alt2, div.errormsg, div.subsubsection, div.sectionborder-info {
+      width: 100%; 
+      padding: 6px 0px;
+      clear: left; 
+
+    }
+    div.alt2 {
+      background-color: #ECEFF2;
+    } 
+    div.subsubsection {
+       background-color: #ECEFF2;
+    font-weight: bold;
+    padding-bottom: 7px;
+    padding-left: 7px;
+    padding-top: 7px;
+    border-top:0;
+    }
+    
+    div.subsubsection div {
+      padding: 3px;     
+      border: 0;
+      font-weight: bold;
+      color: #78848F;
+    }
+    div.sectionborder-info * {
+      padding:  5px;
+    } 
+    div.alt1:after, div.alt2:after, div.errormsg:after  {
+      content: ".";
+      display: block;
+      height: 0;
+      clear: both;
+      visibility: hidden;
+    }
+    
+    /* ? */
+    .sectionborder_outer {
+      margin: 0;
+      padding: 0;
+      height: 0;
+    }
+    div.sectionborder_outer {
+      width: auto;
+    }
+    .sectionborder {
+      margin: 0;
+      margin-top: 5px;
+      width: auto;
+    }  
+    
+    /* Zeile ohne Formularelemente */  
+    .block {
+      text-align: center;
+      padding: 3px;
+    }
+
+    /* Required-Stern */
+    span.required {
+      display: inline;
+      color: #000000;
+    }    
+    
+    .clear {
+      clear: both;
+    }
+    
+   
+   /* Form Calendar */   
+  .dp_cal{
+    background-color: #fff;
+  
+  
+    width: 177px;
+    top: 24px;
+    left: 0;
+    margin: 0px 0px 3px 0px;
+  }
+  .dp_cal table{
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+  .dp_cal select{
+    margin: 2px 3px;
+    font-size: 11px;
+  }
+  .dp_cal select option{
+    padding: 1px 3px;
+  }
+  .dp_cal th,
+  .dp_cal td{
+    width: 14.2857%;
+    text-align: center;
+    font-size: 11px;
+    padding: 2px 0;
+  }
+  .dp_cal th{
+    
+    border-width: 1px 0;
+    color: #797774;
+    
+    font-weight: bold;
+  }
+  .dp_cal td{
+    cursor: pointer;
+  }
+  .dp_cal thead th{
+    
+  }
+  .dp_cal td.dp_roll{
+    color: #000;
+    background: #fff6bf;
+  }
+  /* must have this for the IE6 select box hiding */
+  .dp_hide{
+    visibility: hidden;
+  }
+  .dp_empty{
+    background: #eee;
+  }
+  .dp_today{
+    background: #ccc;
+  }
+  .dp_selected{
+    color: #fff;
+    background: #328dcf;
+  }
+  
+  input.DatePicker
+  {
+    background:#FFFFFF url("../../../../wcp/gui/images/p_rechts.gif") no-repeat scroll left top;
+    padding-left: 20px;
+    cursor:pointer;
+    background-color: #FFFFFF;
+    border: 1px solid black;
+    font-size:11px;
+    height: 16px;
+    width:60px;
+  }
+  
+  input.submitbutton
+  {
+    float: right;
+    margin: 3px;
+  }

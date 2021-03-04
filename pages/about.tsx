@@ -11,13 +11,9 @@ interface IProps {
 const About: FC<IProps> = ({ title, description }) => {
   return (
     <Layout pageTitle={`${title} | About`}>
-      <h1 className="title">Welcome to portfolio!</h1>
-      <p className="description">{description}</p>
+      <h1 className="title">About me</h1>
 
-      <p>
-        I am a very exciting person. I know this because I&apos;m following a
-        very exciting tutorial, and a not-exciting person wouldn&apos;t do that.
-      </p>
+      <p>Well .. this is a TODO</p>
     </Layout>
   )
 }

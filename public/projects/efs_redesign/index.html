@@ -1,0 +1,533 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+  <title>Start</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta http-equiv="imagetoolbar" content="no"/>
+  <link href="files/favicon.ico" rel="shortcut icon"/>
+  <!-- <link href="files/default.css?t=cc968ff12b0dfa862667324b89899e22" media="screen" rel="stylesheet" type="text/css"/> -->
+  <link href="./new.css" media="screen" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript">
+    //<![CDATA[
+    var djConfig = {"parseOnLoad" : true, "baseUrl" : "", "locale" : "en"};
+    //]]>
+    </script>
+
+  <style type="text/css">
+    @import "./tundra.css";
+    @import "./dojo.css";
+  </style>
+
+
+  </head>
+
+<body class="tundra">
+
+<div id="wrap">
+<table id="old">
+<tbody>
+<tr>
+  <td colspan="2" id="adm_head_cell">
+
+
+<div id="adm_topnavigation">
+
+  <!-- menu -->
+
+  <ul class="tabs">
+
+    <li class="logo"><a href="?p=start"><span>EFS Survey</span></a></li>
+
+    <!-- main modules -->
+    <li class="tab start"><a href="#"><i class="icon icon-large icon-group "></i>People Data</a></li>
+    <li class="tab"><a href="?p=projectlist"><i class="icon icon-large icon-book "></i>Projects</a></li>
+    <li class="tab end gap"><a href="#"><i class="icon icon-large icon-sitemap "></i>Website</a></li>
+
+    <!-- meta modules -->
+    <li class="tab small start"><a href="#"><i class="icon icon-large icon-user "></i>Accounts</a></li>
+    <li class="tab small "><a href="#"><i class="icon icon-large icon-cogs "></i>Options</a></li>
+    <li class="tab small end"><a href="#"><i class="icon icon-large icon-star "></i>Bookmarks</a></li>
+
+  </ul>
+
+  <ul class="lightmenu" id="lightmenu">
+    <!-- minor modules -->
+    <li class="start"><a href="#" accesskey="l">Logout</a></li>
+    <li class=""><a href="#" >User : Markus Inger</a></li>
+    <li class=""><a href="#" accesskey="h">Help</a></li>
+    <li class=""><a href="#" >Feedback</a></li>
+    <li class="end"><a id="changelang" href="#" >Deutsch</a></li>
+  </ul>
+
+  <!-- breadcrumb -->
+  <div id="adm_breadcrumb">
+    <ul>
+      <li class="home"><a href="http://dev.inger.dev.qb-feedback.com/www/main.php?__menu_node=main">Home</a></li>
+      <li class="item"><a href="project.php?__menu_node=project">Projects</a></li>
+    </ul>
+  </div>
+
+</div>
+  </td>
+</tr>
+<tr>
+<td class="adm_col_nav">
+
+    <div id="fixedmenu" style="position: static; top: 0px; ">
+        <div id="adm_menu" class="adm_menu">
+          <!-- GP_MENU_START -->
+          <ul>
+            <li class="menutitle">Projects</li><li class="isactive"><a href="http://dev.inger.dev.qb-feedback.com/www/project.php?act=list_projects&__menu_node=projectlist" title="Project list">Project list </a></li><li><a href="http://dev.inger.dev.qb-feedback.com/www/front.php?module=survey&controller=projectcreate&act=create&__menu_node=create_project" title="Create project">Create project </a></li><li><a href="http://dev.inger.dev.qb-feedback.com/www/front.php?module=survey&controller=projectimport&__menu_node=import_project" title="Project import">Project import </a></li><li><a href="http://dev.inger.dev.qb-feedback.com/www/fieldreport.php?act=fieldrep_list&__menu_node=fieldreport_list" title="Field overview">Field overview </a></li><li><a href="http://dev.inger.dev.qb-feedback.com/www/archiv_prj.php?act=show_proj&__menu_node=prj_archive" title="Archive">Archive </a></li>            <li class="end"></li>
+          </ul>
+          <!-- GP_MENU_END -->
+        </div>
+
+              </div>
+    <div id="fixmenucolwidth"></div>
+
+
+</td>
+<td class="adm_col_main">
+
+<div class="adm_cb_std">
+<div class="item">
+
+<form action="/www/project.php" name="listform" id="listform" method="post">
+<div class="contentHeadline"><h1>Projects</h1></div>
+<table width="100%" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td style="margin: 0px;padding: 0px;">
+
+
+<script type="text/javascript">
+    /* <![CDATA[ */
+    function add_action_param(form, addon) {
+      if (form.action.search(/\?/) != -1) {
+        form.action += '&' + addon;
+      }
+      else {
+        form.action += '?' + addon;
+      }
+    }
+    /* ]]> */
+</script>
+
+<table width="100%" cellspacing="1" cellpadding="3" class="sectionborder_outer">
+  <tbody>
+  <tr>
+    <td class="sectionborder">
+      <a href="/www/project.php?__d=GP5088eefb20cda&amp;project_advanced_form_x=1#project_advanced_form_x"><img src="./common_plus.png" width="24" height="14" title="Expand" alt="Expand" align="absmiddle" class="icon"></a>&nbsp;&nbsp;<a name="project_advanced_form_x">Limit
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+<table width="100%" cellspacing="1" cellpadding="3" class="tablerahmen">
+  <tbody>
+  <tr class=" bgcolor  bgcolor_ECEFF2">
+    <td width="20%">Search text</td>
+    <td width="30%"><input type="text" name="form_text" size="20" maxlength="50">
+    </td>
+    <td width="20%">Search text in</td>
+    <td width="30%"><input type="checkbox" name="form_search[title]" value="title" checked="1">
+      &nbsp;Project title<br><input type="checkbox" name="form_search[pdir]" value="pdir" checked="1">
+      &nbsp;Project directory name<br><input type="checkbox" name="form_search[pauth]" value="pauth">
+      &nbsp;Author
+    </td>
+  </tr>
+  <input type="hidden" name="was_posted" value="1">
+  <tr class=" bgcolor  bgcolor_FFFFFF">
+    <td colspan="4" align="right"><input type="hidden" name="act" value="show">
+      <input type="submit" name="submit" value="Search" accesskey="s" class="submit">
+      &nbsp;</td>
+  </tr>
+  </tbody>
+</table>
+
+<table width="100%" cellspacing="1" cellpadding="3" class="sectionborder_outer">
+  <tbody>
+  <tr>
+    <td class="sectionborder">Project list</td>
+  </tr>
+  </tbody>
+</table>
+
+<table width="100%" cellspacing="1" cellpadding="3" class="tablerahmen">
+<tbody>
+<tr class=" bgcolor  bgcolor_ffffff">
+  <td colspan="1" align="left">
+    <nobr>
+      <span class="tablebutton" style="float: left"><a href="/www/project.php?act=create_category&amp;form_type=P" class="link ">Create folder</a></span>
+      <span class="tablebutton" style="float: left"><a href="/www/project.php?tree=0" class="link ">Show as list</a></span>
+      <span class="tablebutton" style="float: left"><a href="/www/project.php?skip_empty=0" class="link ">Show empty folders</a></span>
+      <span class="tablebutton" style="float: left"><a href="/www/project.php?project_list_tree_expandall=1" class="link ">Expand all</a></span>
+      <span class="tablebutton" style="float: left"><a href="/www/project.php?project_list_tree_collapseall=1" class="link ">Collapse all</a></span>
+    </nobr>
+  </td>
+</tr>
+<script type="text/javascript">
+if (document.forms['listform'] && document.forms['listform'].elements['form_text']) {
+  document.forms['listform'].elements['form_text'].focus();
+}
+</script>
+<tr class=" bgcolor  bgcolor_ffffff">
+<td colspan="1" align="left" class="nopadding">
+<table cellspacing="0" cellpadding="0" width="100%" class="treelist">
+<tbody>
+<tr class=" bgcolor  bgcolor_adbbc4">
+  <th align="center" valign="top" class="treeheadleft"><b><a href="/www/project.php?order_key=title&amp;order_dir=desc">Project title</a></b>
+  </th>
+  <th align="center" valign="top" class="treehead">
+    <b><a href="/www/project.php?show=author"><img src="./common_add_col.png" width="18" height="11" title="Show column Author" alt="Show column Author" align="absmiddle" class="icon"></a></b>
+  </th>
+  <th align="center" valign="top" class="treehead"><b>
+    <nobr><a href="/www/project.php?order_key=id&amp;order_dir=asc">Project
+                                                                    ID</a>&nbsp;<a href="/www/project.php?hide=pid"><img src="./common_del_col.png" width="18" height="11" title="Hide column" alt="Hide column" align="absmiddle" class="icon"></a>
+    </nobr>
+  </b>
+  </th>
+  <th align="center" valign="top" class="treehead"><b><a href="/www/project.php?order_key=type&amp;order_dir=asc">Type</a></b>
+  </th>
+  <th align="center" valign="top" class="treehead"><b><a href="/www/project.php?order_key=status&amp;order_dir=asc">Status</a></b>
+  </th>
+  <th align="center" valign="top" class="treehead">
+    <b><a href="/www/project.php?show=created"><img src="./common_add_col.png" width="18" height="11" title="Show column Created" alt="Show column Created" align="absmiddle" class="icon"></a></b>
+  </th>
+  <th align="center" valign="top" class="treehead">
+    <b><a href="/www/project.php?show=started"><img src="./common_add_col.png" width="18" height="11" title="Show column Start" alt="Show column Start" align="absmiddle" class="icon"></a></b>
+  </th>
+  <th align="center" valign="top" class="treehead"><b></b></th>
+  <th width="150px" colspan="2">Actions
+  </th>
+</tr>
+<tr bgcolor="#ECEFF2">
+  <td class="treecellleft" width="50%">
+    <nobr>
+      <a href="/www/project.php?act=show_tree&amp;project_list_tree_id=FAV&amp;project_list_tree_act=expand"><img src="./linejoinplus.png" class="plico" alt=""></a><img src="./fav_folder.gif" class="plico" alt=""><acronym title="Virtual folder: contains the projects last edited">Projects edited recently</acronym>
+      <b>(2)</b></nobr>
+  </td>
+  <td class="treecell">&nbsp;</td>
+  <td class="treecell">&nbsp;</td>
+  <td class="treecell">&nbsp;</td>
+  <td class="treecell">&nbsp;</td>
+  <td class="treecell">&nbsp;</td>
+  <td class="treecell">&nbsp;</td>
+  <td class="treecell">&nbsp;</td>
+  <td class="treecell">&nbsp;</td>
+  <td class="treecell">&nbsp;</td>
+</tr>
+<tr bgcolor="#FFFFFF">
+  <td class="treecellleft" width="50%">
+    <nobr>
+      <a href="/www/project.php?act=show_tree&amp;project_list_tree_id=CAT1&amp;project_list_tree_act=collapse"><img src="./lineendminus.png" class="plico" alt=""></a><img src="./folder_open.gif" class="plico" alt="">Default
+      <b>(8)</b></nobr>
+  </td>
+  <td class="treecell">&nbsp;</td>
+  <td class="treecell">&nbsp;</td>
+  <td class="treecell">&nbsp;</td>
+  <td class="treecell">&nbsp;</td>
+  <td class="treecell">&nbsp;</td>
+  <td class="treecell">&nbsp;</td>
+  <td class="treecell">&nbsp;</td>
+  <td class="treecell">
+    <img src="./pixel_t.gif" width="132" height="1" alt=""><a class="menulink" href="javascript:void(0);"><img src="./more.gif" width="24" height="16" title="Further actions" alt="Further actions" align="absmiddle" class="icon"></a>
+
+    <div style="display: none" class="menuitems"><a style="display: none" href="/www/project.php?act=create_category&amp;form_type=P&amp;form_parent=1">Create
+                                                                                                                                                        subfolder</a>
+    </div>
+  </td>
+  <td class="treecell">&nbsp;</td>
+</tr>
+<tr bgcolor="#ECEFF2">
+  <td class="treecellleft" width="50%">
+    <nobr>
+      <span class="plbl"> </span><img src="./linejoin.png" class="plico" alt=""><a title="" href="front.php?module=survey&amp;controller=syadmin&amp;pid=674">Adaptive
+                                                                                                                                                                                   Layout</a>
+    </nobr>
+  </td>
+  <td class="treecell">&nbsp;</td>
+  <td class="treecell">674</td>
+  <td class="treecell">AN</td>
+  <td class="treecell">active (2012-10-02)</td>
+  <td class="treecell">&nbsp;</td>
+  <td class="treecell">&nbsp;</td>
+  <td class="treecell">
+    <img src="./green_dot.gif" width="8" height="8" title="Survey currently in time frame." alt="Survey currently in time frame." align="absmiddle" class="icon">
+  </td>
+  <td class="treecell">
+    <a href="edit_admin.php?act=view&amp;syid=674"><img src="./edit_page.gif" width="24" height="16" title="Jump to questionnaire editor" alt="Jump to questionnaire editor" align="absmiddle" class="icon"></a>&nbsp;<a href="front.php?module=survey&amp;controller=projectcreate&amp;act=edit&amp;pid=674&amp;back=list"><img src="./edit_props.gif" width="24" height="16" title="Edit project data / -type" alt="Edit project data / -type" align="absmiddle" class="icon"></a>&nbsp;<a href="front.php?module=survey&amp;controller=projectcreate&amp;act=copy&amp;from_pid=674"><img src="./e_copy.gif" width="24" height="16" title="Copy project" alt="Copy project" align="absmiddle" class="icon"></a>&nbsp;<a href="javascript:if(typeof(open_prvw_win)=='function'){open_prvw_win('http%3A%2F%2Fdev.inger.dev.qb-feedback.com%2Fuc%2Fmain%2F318f%2F%3Fpreview_mode%3D1%26closebtn%3DClose%2Bpreview%26ases%3D108933320567ab88d41063dc39f13c8c','preview',1,'auto','auto');}else{var win=window.open('http%3A%2F%2Fdev.inger.dev.qb-feedback.com%2Fuc%2Fmain%2F318f%2F%3Fpreview_mode%3D1%26closebtn%3DClose%2Bpreview%26ases%3D108933320567ab88d41063dc39f13c8c','_blank','toolbar=yes,location=yes,directories=yes,status=yes,menubar=yes,scrollbars=yes,resizable=yes,');win.focus();}"><img src="./eye.gif" width="24" height="16" title="Preview" alt="Preview" align="absmiddle" class="icon"></a>&nbsp;<img src="./pixel_t.gif" width="24" height="1" alt=""><a class="menulink" href="javascript:void(0);"><img src="./more.gif" width="24" height="16" title="Further actions" alt="Further actions" align="absmiddle" class="icon"></a>
+
+    <div style="display: none" class="menuitems">
+      <a style="display: none" href="front.php?module=survey&amp;controller=syadmin&amp;act=change_status&amp;pid=674&amp;status=closing">No further
+                                                                                                                                          participations</a><a style="display: none" href="front.php?module=survey&amp;controller=syadmin&amp;act=change_status&amp;pid=674&amp;status=inaktiv">Deactivate</a><a style="display: none" href="front.php?module=survey&amp;controller=syadmin&amp;act=change_status&amp;pid=674&amp;status=beenden">End</a><a style="display: none" href="export_new.php?act=project&amp;pid=674">Export</a><a style="display: none" href="project.php?act=mod_rights&amp;pid=674">Rights</a>
+    </div>
+  </td>
+  <td class="treecell"><input type="checkbox" name="project_select[]" value="674" class="project_select0r">
+  </td>
+</tr>
+<tr bgcolor="#FFFFFF">
+  <td class="treecellleft" width="50%">
+    <nobr>
+      <span class="plbl"> </span><img src="./linejoin.png" class="plico" alt=""><a title="" href="front.php?module=survey&amp;controller=syadmin&amp;pid=629">Anonymous
+                                                                                                                                                                                   survey</a>
+    </nobr>
+  </td>
+  <td class="treecell">&nbsp;</td>
+  <td class="treecell">629</td>
+  <td class="treecell">AN</td>
+  <td class="treecell">survey compiled (2012-08-24)</td>
+  <td class="treecell">&nbsp;</td>
+  <td class="treecell">&nbsp;</td>
+  <td class="treecell">&nbsp;</td>
+  <td class="treecell">
+    <a href="edit_admin.php?act=view&amp;syid=629"><img src="./edit_page.gif" width="24" height="16" title="Jump to questionnaire editor" alt="Jump to questionnaire editor" align="absmiddle" class="icon"></a>&nbsp;<a href="front.php?module=survey&amp;controller=projectcreate&amp;act=edit&amp;pid=629&amp;back=list"><img src="./edit_props.gif" width="24" height="16" title="Edit project data / -type" alt="Edit project data / -type" align="absmiddle" class="icon"></a>&nbsp;<a href="front.php?module=survey&amp;controller=projectcreate&amp;act=copy&amp;from_pid=629"><img src="./e_copy.gif" width="24" height="16" title="Copy project" alt="Copy project" align="absmiddle" class="icon"></a>&nbsp;<a href="javascript:if(typeof(open_prvw_win)=='function'){open_prvw_win('http%3A%2F%2Fdev.inger.dev.qb-feedback.com%2Fuc%2Fmain%2F5602%2F%3Fpreview_mode%3D1%26closebtn%3DClose%2Bpreview%26ases%3D108933320567ab88d41063dc39f13c8c','preview',1,'auto','auto');}else{var win=window.open('http%3A%2F%2Fdev.inger.dev.qb-feedback.com%2Fuc%2Fmain%2F5602%2F%3Fpreview_mode%3D1%26closebtn%3DClose%2Bpreview%26ases%3D108933320567ab88d41063dc39f13c8c','_blank','toolbar=yes,location=yes,directories=yes,status=yes,menubar=yes,scrollbars=yes,resizable=yes,');win.focus();}"><img src="./eye.gif" width="24" height="16" title="Preview" alt="Preview" align="absmiddle" class="icon"></a>&nbsp;<img src="./pixel_t.gif" width="24" height="1" alt=""><a class="menulink" href="javascript:void(0);"><img src="./more.gif" width="24" height="16" title="Further actions" alt="Further actions" align="absmiddle" class="icon"></a>
+
+    <div style="display: none" class="menuitems">
+      <a style="display: none" href="front.php?module=survey&amp;controller=syadmin&amp;act=change_status&amp;pid=629&amp;status=aktiv">Activate</a><a style="display: none" href="export_new.php?act=project&amp;pid=629">Export</a><a style="display: none" href="project.php?act=mod_rights&amp;pid=629">Rights</a>
+    </div>
+  </td>
+  <td class="treecell"><input type="checkbox" name="project_select[]" value="629" class="project_select0r">
+  </td>
+</tr>
+<tr bgcolor="#ECEFF2">
+  <td class="treecellleft" width="50%">
+    <nobr>
+      <span class="plbl"> </span><img src="./linejoin.png" class="plico" alt=""><a title="" href="front.php?module=survey&amp;controller=syadmin&amp;pid=642">Anonymous
+                                                                                                                                                                                   survey
+                                                                                                                                                                                   with
+                                                                                                                                                                                   all
+                                                                                                                                                                                   question
+                                                                                                                                                                                   ...</a>
+    </nobr>
+  </td>
+  <td class="treecell">&nbsp;</td>
+  <td class="treecell">642</td>
+  <td class="treecell">AN</td>
+  <td class="treecell">active (2012-09-25)</td>
+  <td class="treecell">&nbsp;</td>
+  <td class="treecell">&nbsp;</td>
+  <td class="treecell">
+    <img src="./red_dot.gif" width="8" height="8" title="Survey currently not in time frame." alt="Survey currently not in time frame." align="absmiddle" class="icon">
+  </td>
+  <td class="treecell">
+    <a href="edit_admin.php?act=view&amp;syid=642"><img src="./edit_page.gif" width="24" height="16" title="Jump to questionnaire editor" alt="Jump to questionnaire editor" align="absmiddle" class="icon"></a>&nbsp;<a href="front.php?module=survey&amp;controller=projectcreate&amp;act=edit&amp;pid=642&amp;back=list"><img src="./edit_props.gif" width="24" height="16" title="Edit project data / -type" alt="Edit project data / -type" align="absmiddle" class="icon"></a>&nbsp;<a href="front.php?module=survey&amp;controller=projectcreate&amp;act=copy&amp;from_pid=642"><img src="./e_copy.gif" width="24" height="16" title="Copy project" alt="Copy project" align="absmiddle" class="icon"></a>&nbsp;<a href="javascript:if(typeof(open_prvw_win)=='function'){open_prvw_win('http%3A%2F%2Fdev.inger.dev.qb-feedback.com%2Fuc%2Fmain%2F8f2c%2F%3Fpreview_mode%3D1%26closebtn%3DClose%2Bpreview%26ases%3D108933320567ab88d41063dc39f13c8c','preview',1,'auto','auto');}else{var win=window.open('http%3A%2F%2Fdev.inger.dev.qb-feedback.com%2Fuc%2Fmain%2F8f2c%2F%3Fpreview_mode%3D1%26closebtn%3DClose%2Bpreview%26ases%3D108933320567ab88d41063dc39f13c8c','_blank','toolbar=yes,location=yes,directories=yes,status=yes,menubar=yes,scrollbars=yes,resizable=yes,');win.focus();}"><img src="./eye.gif" width="24" height="16" title="Preview" alt="Preview" align="absmiddle" class="icon"></a>&nbsp;<img src="./pixel_t.gif" width="24" height="1" alt=""><a class="menulink" href="javascript:void(0);"><img src="./more.gif" width="24" height="16" title="Further actions" alt="Further actions" align="absmiddle" class="icon"></a>
+
+    <div style="display: none" class="menuitems">
+      <a style="display: none" href="front.php?module=survey&amp;controller=syadmin&amp;act=change_status&amp;pid=642&amp;status=closing">No further
+                                                                                                                                          participations</a><a style="display: none" href="front.php?module=survey&amp;controller=syadmin&amp;act=change_status&amp;pid=642&amp;status=inaktiv">Deactivate</a><a style="display: none" href="front.php?module=survey&amp;controller=syadmin&amp;act=change_status&amp;pid=642&amp;status=beenden">End</a><a style="display: none" href="export_new.php?act=project&amp;pid=642">Export</a><a style="display: none" href="project.php?act=mod_rights&amp;pid=642">Rights</a>
+    </div>
+  </td>
+  <td class="treecell"><input type="checkbox" name="project_select[]" value="642" class="project_select0r">
+  </td>
+</tr>
+<tr bgcolor="#FFFFFF">
+  <td class="treecellleft" width="50%">
+    <nobr>
+      <span class="plbl"> </span><img src="./linejoin.png" class="plico" alt=""><a title="" href="front.php?module=survey&amp;controller=syadmin&amp;pid=632">Master
+                                                                                                                                                                                   data
+                                                                                                                                                                                   survey</a>
+    </nobr>
+  </td>
+  <td class="treecell">&nbsp;</td>
+  <td class="treecell">632</td>
+  <td class="treecell">MD</td>
+  <td class="treecell">survey compiled (2012-08-24)</td>
+  <td class="treecell">&nbsp;</td>
+  <td class="treecell">&nbsp;</td>
+  <td class="treecell">&nbsp;</td>
+  <td class="treecell">
+    <a href="edit_admin.php?act=view&amp;syid=632"><img src="./edit_page.gif" width="24" height="16" title="Jump to questionnaire editor" alt="Jump to questionnaire editor" align="absmiddle" class="icon"></a>&nbsp;<a href="front.php?module=survey&amp;controller=projectcreate&amp;act=edit&amp;pid=632&amp;back=list"><img src="./edit_props.gif" width="24" height="16" title="Edit project data / -type" alt="Edit project data / -type" align="absmiddle" class="icon"></a>&nbsp;<a href="front.php?module=survey&amp;controller=projectcreate&amp;act=copy&amp;from_pid=632"><img src="./e_copy.gif" width="24" height="16" title="Copy project" alt="Copy project" align="absmiddle" class="icon"></a>&nbsp;<a href="javascript:if(typeof(open_prvw_win)=='function'){open_prvw_win('http%3A%2F%2Fdev.inger.dev.qb-feedback.com%2Fs%2F632%2Findex.php%3Fact%3Dstart%26syid%3D632%26preview_mode%3D1%26closebtn%3DClose%2Bpreview%26ases%3D108933320567ab88d41063dc39f13c8c','preview',1,'auto','auto');}else{var win=window.open('http%3A%2F%2Fdev.inger.dev.qb-feedback.com%2Fs%2F632%2Findex.php%3Fact%3Dstart%26syid%3D632%26preview_mode%3D1%26closebtn%3DClose%2Bpreview%26ases%3D108933320567ab88d41063dc39f13c8c','_blank','toolbar=yes,location=yes,directories=yes,status=yes,menubar=yes,scrollbars=yes,resizable=yes,');win.focus();}"><img src="./eye.gif" width="24" height="16" title="Preview" alt="Preview" align="absmiddle" class="icon"></a>&nbsp;<img src="./pixel_t.gif" width="24" height="1" alt=""><a class="menulink" href="javascript:void(0);"><img src="./more.gif" width="24" height="16" title="Further actions" alt="Further actions" align="absmiddle" class="icon"></a>
+
+    <div style="display: none" class="menuitems">
+      <a style="display: none" href="front.php?module=survey&amp;controller=syadmin&amp;act=change_status&amp;pid=632&amp;status=aktiv">Activate</a><a style="display: none" href="export_new.php?act=project&amp;pid=632">Export</a><a style="display: none" href="project.php?act=mod_rights&amp;pid=632">Rights</a>
+    </div>
+  </td>
+  <td class="treecell"><input type="checkbox" name="project_select[]" value="632" class="project_select0r">
+  </td>
+</tr>
+<tr bgcolor="#ECEFF2">
+  <td class="treecellleft" width="50%">
+    <nobr>
+      <span class="plbl"> </span><img src="./linejoin.png" class="plico" alt=""><a title="" href="front.php?module=survey&amp;controller=syadmin&amp;pid=639">Panel
+                                                                                                                                                                                   survey</a>
+    </nobr>
+  </td>
+  <td class="treecell">&nbsp;</td>
+  <td class="treecell">639</td>
+  <td class="treecell">PA</td>
+  <td class="treecell">survey compiled (2012-08-24)</td>
+  <td class="treecell">&nbsp;</td>
+  <td class="treecell">&nbsp;</td>
+  <td class="treecell">&nbsp;</td>
+  <td class="treecell">
+    <a href="edit_admin.php?act=view&amp;syid=639"><img src="./edit_page.gif" width="24" height="16" title="Jump to questionnaire editor" alt="Jump to questionnaire editor" align="absmiddle" class="icon"></a>&nbsp;<a href="front.php?module=survey&amp;controller=projectcreate&amp;act=edit&amp;pid=639&amp;back=list"><img src="./edit_props.gif" width="24" height="16" title="Edit project data / -type" alt="Edit project data / -type" align="absmiddle" class="icon"></a>&nbsp;<a href="front.php?module=survey&amp;controller=projectcreate&amp;act=copy&amp;from_pid=639"><img src="./e_copy.gif" width="24" height="16" title="Copy project" alt="Copy project" align="absmiddle" class="icon"></a>&nbsp;<a href="javascript:if(typeof(open_prvw_win)=='function'){open_prvw_win('http%3A%2F%2Fdev.inger.dev.qb-feedback.com%2Fs%2F639%2Findex.php%3Fact%3Dstart%26syid%3D639%26preview_mode%3D1%26closebtn%3DClose%2Bpreview%26ases%3D108933320567ab88d41063dc39f13c8c','preview',1,'auto','auto');}else{var win=window.open('http%3A%2F%2Fdev.inger.dev.qb-feedback.com%2Fs%2F639%2Findex.php%3Fact%3Dstart%26syid%3D639%26preview_mode%3D1%26closebtn%3DClose%2Bpreview%26ases%3D108933320567ab88d41063dc39f13c8c','_blank','toolbar=yes,location=yes,directories=yes,status=yes,menubar=yes,scrollbars=yes,resizable=yes,');win.focus();}"><img src="./eye.gif" width="24" height="16" title="Preview" alt="Preview" align="absmiddle" class="icon"></a>&nbsp;<a href="front.php?module=panel&amp;controller=sampling&amp;pid=639"><img src="./part_admin.gif" width="24" height="20" title="Participant administration" alt="Participant administration" align="absmiddle" class="icon"></a><a class="menulink" href="javascript:void(0);"><img src="./more.gif" width="24" height="16" title="Further actions" alt="Further actions" align="absmiddle" class="icon"></a>
+
+    <div style="display: none" class="menuitems">
+      <a style="display: none" href="front.php?module=survey&amp;controller=syadmin&amp;act=change_status&amp;pid=639&amp;status=aktiv">Activate</a><a style="display: none" href="export_new.php?act=project&amp;pid=639">Export</a><a style="display: none" href="project.php?act=mod_rights&amp;pid=639">Rights</a>
+    </div>
+  </td>
+  <td class="treecell"><input type="checkbox" name="project_select[]" value="639" class="project_select0r">
+  </td>
+</tr>
+<tr bgcolor="#FFFFFF">
+  <td class="treecellleft" width="50%">
+    <nobr>
+      <span class="plbl"> </span><img src="./linejoin.png" class="plico" alt=""><a title="" href="front.php?module=survey&amp;controller=syadmin&amp;pid=635">Personalized
+                                                                                                                                                                                   survey</a>
+    </nobr>
+  </td>
+  <td class="treecell">&nbsp;</td>
+  <td class="treecell">635</td>
+  <td class="treecell">PE</td>
+  <td class="treecell">survey compiled (2012-08-24)</td>
+  <td class="treecell">&nbsp;</td>
+  <td class="treecell">&nbsp;</td>
+  <td class="treecell">&nbsp;</td>
+  <td class="treecell">
+    <a href="edit_admin.php?act=view&amp;syid=635"><img src="./edit_page.gif" width="24" height="16" title="Jump to questionnaire editor" alt="Jump to questionnaire editor" align="absmiddle" class="icon"></a>&nbsp;<a href="front.php?module=survey&amp;controller=projectcreate&amp;act=edit&amp;pid=635&amp;back=list"><img src="./edit_props.gif" width="24" height="16" title="Edit project data / -type" alt="Edit project data / -type" align="absmiddle" class="icon"></a>&nbsp;<a href="front.php?module=survey&amp;controller=projectcreate&amp;act=copy&amp;from_pid=635"><img src="./e_copy.gif" width="24" height="16" title="Copy project" alt="Copy project" align="absmiddle" class="icon"></a>&nbsp;<a href="javascript:if(typeof(open_prvw_win)=='function'){open_prvw_win('http%3A%2F%2Fdev.inger.dev.qb-feedback.com%2Fuc%2Fmain%2Fb2a7%2F%3Fpreview_mode%3D1%26closebtn%3DClose%2Bpreview%26ases%3D108933320567ab88d41063dc39f13c8c','preview',1,'auto','auto');}else{var win=window.open('http%3A%2F%2Fdev.inger.dev.qb-feedback.com%2Fuc%2Fmain%2Fb2a7%2F%3Fpreview_mode%3D1%26closebtn%3DClose%2Bpreview%26ases%3D108933320567ab88d41063dc39f13c8c','_blank','toolbar=yes,location=yes,directories=yes,status=yes,menubar=yes,scrollbars=yes,resizable=yes,');win.focus();}"><img src="./eye.gif" width="24" height="16" title="Preview" alt="Preview" align="absmiddle" class="icon"></a>&nbsp;<a href="ct42partadm.php?pid=635"><img src="./part_admin.gif" width="24" height="20" title="Participant administration" alt="Participant administration" align="absmiddle" class="icon"></a><a class="menulink" href="javascript:void(0);"><img src="./more.gif" width="24" height="16" title="Further actions" alt="Further actions" align="absmiddle" class="icon"></a>
+
+    <div style="display: none" class="menuitems">
+      <a style="display: none" href="front.php?module=survey&amp;controller=syadmin&amp;act=change_status&amp;pid=635&amp;status=aktiv">Activate</a><a style="display: none" href="export_new.php?act=project&amp;pid=635">Export</a><a style="display: none" href="project.php?act=mod_rights&amp;pid=635">Rights</a>
+    </div>
+  </td>
+  <td class="treecell"><input type="checkbox" name="project_select[]" value="635" class="project_select0r">
+  </td>
+</tr>
+<tr bgcolor="#ECEFF2">
+  <td class="treecellleft" width="50%">
+    <nobr>
+      <span class="plbl"> </span><img src="./linejoin.png" class="plico" alt=""><a title="" href="front.php?module=survey&amp;controller=syadmin&amp;pid=645">Thumb
+                                                                                                                                                                                   Project</a>
+    </nobr>
+  </td>
+  <td class="treecell">&nbsp;</td>
+  <td class="treecell">645</td>
+  <td class="treecell">AN</td>
+  <td class="treecell">survey compiled (2012-08-28)</td>
+  <td class="treecell">&nbsp;</td>
+  <td class="treecell">&nbsp;</td>
+  <td class="treecell">&nbsp;</td>
+  <td class="treecell">
+    <a href="edit_admin.php?act=view&amp;syid=645"><img src="./edit_page.gif" width="24" height="16" title="Jump to questionnaire editor" alt="Jump to questionnaire editor" align="absmiddle" class="icon"></a>&nbsp;<a href="front.php?module=survey&amp;controller=projectcreate&amp;act=edit&amp;pid=645&amp;back=list"><img src="./edit_props.gif" width="24" height="16" title="Edit project data / -type" alt="Edit project data / -type" align="absmiddle" class="icon"></a>&nbsp;<a href="front.php?module=survey&amp;controller=projectcreate&amp;act=copy&amp;from_pid=645"><img src="./e_copy.gif" width="24" height="16" title="Copy project" alt="Copy project" align="absmiddle" class="icon"></a>&nbsp;<a href="javascript:if(typeof(open_prvw_win)=='function'){open_prvw_win('http%3A%2F%2Fdev.inger.dev.qb-feedback.com%2Fuc%2Fmain%2Fec71%2F%3Fpreview_mode%3D1%26closebtn%3DClose%2Bpreview%26ases%3D108933320567ab88d41063dc39f13c8c','preview',1,'auto','auto');}else{var win=window.open('http%3A%2F%2Fdev.inger.dev.qb-feedback.com%2Fuc%2Fmain%2Fec71%2F%3Fpreview_mode%3D1%26closebtn%3DClose%2Bpreview%26ases%3D108933320567ab88d41063dc39f13c8c','_blank','toolbar=yes,location=yes,directories=yes,status=yes,menubar=yes,scrollbars=yes,resizable=yes,');win.focus();}"><img src="./eye.gif" width="24" height="16" title="Preview" alt="Preview" align="absmiddle" class="icon"></a>&nbsp;<img src="./pixel_t.gif" width="24" height="1" alt=""><a class="menulink" href="javascript:void(0);"><img src="./more.gif" width="24" height="16" title="Further actions" alt="Further actions" align="absmiddle" class="icon"></a>
+
+    <div style="display: none" class="menuitems">
+      <a style="display: none" href="front.php?module=survey&amp;controller=syadmin&amp;act=change_status&amp;pid=645&amp;status=aktiv">Activate</a><a style="display: none" href="export_new.php?act=project&amp;pid=645">Export</a><a style="display: none" href="project.php?act=mod_rights&amp;pid=645">Rights</a>
+    </div>
+  </td>
+  <td class="treecell"><input type="checkbox" name="project_select[]" value="645" class="project_select0r">
+  </td>
+</tr>
+<tr bgcolor="#FFFFFF">
+  <td class="treecellleft" width="50%">
+    <nobr>
+      <span class="plbl"> </span><img src="./lineend.png" class="plico" alt=""><a title="" href="front.php?module=survey&amp;controller=syadmin&amp;pid=648">Twitter</a>&nbsp;<img src="./star.gif" width="16" height="16" title="The project has been marked as &quot;important&quot;." alt="The project has been marked as &quot;important&quot;." align="absmiddle" class="icon">
+    </nobr>
+  </td>
+  <td class="treecell">&nbsp;</td>
+  <td class="treecell">648</td>
+  <td class="treecell">AN</td>
+  <td class="treecell">survey compiled (2012-09-05)</td>
+  <td class="treecell">&nbsp;</td>
+  <td class="treecell">&nbsp;</td>
+  <td class="treecell">&nbsp;</td>
+  <td class="treecell">
+    <a href="edit_admin.php?act=view&amp;syid=648"><img src="./edit_page.gif" width="24" height="16" title="Jump to questionnaire editor" alt="Jump to questionnaire editor" align="absmiddle" class="icon"></a>&nbsp;<a href="front.php?module=survey&amp;controller=projectcreate&amp;act=edit&amp;pid=648&amp;back=list"><img src="./edit_props.gif" width="24" height="16" title="Edit project data / -type" alt="Edit project data / -type" align="absmiddle" class="icon"></a>&nbsp;<a href="front.php?module=survey&amp;controller=projectcreate&amp;act=copy&amp;from_pid=648"><img src="./e_copy.gif" width="24" height="16" title="Copy project" alt="Copy project" align="absmiddle" class="icon"></a>&nbsp;<a href="javascript:if(typeof(open_prvw_win)=='function'){open_prvw_win('http%3A%2F%2Fdev.inger.dev.qb-feedback.com%2Fuc%2Fmain%2F36e9%2F%3Fpreview_mode%3D1%26closebtn%3DClose%2Bpreview%26ases%3D108933320567ab88d41063dc39f13c8c','preview',1,'auto','auto');}else{var win=window.open('http%3A%2F%2Fdev.inger.dev.qb-feedback.com%2Fuc%2Fmain%2F36e9%2F%3Fpreview_mode%3D1%26closebtn%3DClose%2Bpreview%26ases%3D108933320567ab88d41063dc39f13c8c','_blank','toolbar=yes,location=yes,directories=yes,status=yes,menubar=yes,scrollbars=yes,resizable=yes,');win.focus();}"><img src="./eye.gif" width="24" height="16" title="Preview" alt="Preview" align="absmiddle" class="icon"></a>&nbsp;<img src="./pixel_t.gif" width="24" height="1" alt=""><a class="menulink" href="javascript:void(0);"><img src="./more.gif" width="24" height="16" title="Further actions" alt="Further actions" align="absmiddle" class="icon"></a>
+
+    <div style="display: none" class="menuitems">
+      <a style="display: none" href="front.php?module=survey&amp;controller=syadmin&amp;act=change_status&amp;pid=648&amp;status=aktiv">Activate</a><a style="display: none" href="export_new.php?act=project&amp;pid=648">Export</a><a style="display: none" href="project.php?act=mod_rights&amp;pid=648">Rights</a>
+    </div>
+  </td>
+  <td class="treecell"><input type="checkbox" name="project_select[]" value="648" class="project_select0r">
+  </td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class=" bgcolor  bgcolor_ffffff">
+  <td colspan="1" align="left"><script>
+function check_selections(selbox, opts, selbox_hint, opts_hint, conf_condition, conf_text) {
+  if (selbox) {
+    var selbox_value = document.getElementById(selbox).options[document.getElementById(selbox).selectedIndex].value;
+    if (selbox_value == -1) {
+      if (selbox_hint) {
+        alert(selbox_hint);
+      }
+      else {
+        alert('Please select an action.');
+      }
+      return false;
+    }
+  }
+  var x0rx = document.getElementsByName(opts);
+  var marked = 0;
+  for (var i = 0; i < x0rx.length; i++) {
+    if (x0rx[i].checked) {
+      marked++;
+    }
+  }
+  if (marked == 0) {
+    if (opts_hint) {
+      alert(opts_hint);
+    }
+    else {
+      alert('Please select at least one project.');
+    }
+    return false;
+  }
+  if (conf_condition && conf_text) {
+    if (selbox_value == conf_condition) {
+      return confirm(conf_text);
+    }
+  }
+  return true;
+}
+</script>
+    <div align="right"><select size="1" name="browser_action" id="browser_action">
+      <option value="-1">--- Select action ---</option>
+      <option value="1">Change folder</option>
+      <option value="2">Delete projects</option>
+      <option value="3">Archive projects</option>
+    </select>
+      <input type="submit" name="submit0rsk" value="Execute" onclick="return check_selections('browser_action', 'project_select[]', false, false, 2, 'Warning: The selected project(s) will be deleted irrevocably. Do you really want to continue?');" class="submit">
+    </div>
+  </td>
+</tr>
+<tr class=" bgcolor  bgcolor_white">
+  <td colspan="1" align="left">
+    <b>Key:</b><br><img src="./green_dot.gif" width="8" height="8" title="Survey currently in time frame." alt="Survey currently in time frame." align="absmiddle" class="icon">
+    Survey currently in time frame. -
+    <img src="./red_dot.gif" width="8" height="8" title="Survey currently not in time frame." alt="Survey currently not in time frame." align="absmiddle" class="icon">
+    Survey currently not in time frame.
+  </td>
+</tr>
+</tbody>
+</table>
+
+</td>
+</tr>
+</tbody>
+</table>
+
+<br>
+</form>
+</div>
+</div>
+
+</td>
+</tr>
+</tbody>
+</table>
+<div class="push"></div>
+</div>
+
+<div id="adm_footer" class="clearfix">
+  <div class="adm_footer_logo_efs">EFS Admin :: Enterprise Feedback Suite</div>
+  <p>COPYRIGHT © 2012 by QuestBack</p>
+</div>
+
+</body>
+</html>

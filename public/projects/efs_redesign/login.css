@@ -1,0 +1,235 @@
+body {
+	margin: 0;
+	padding: 0;
+	color: #000000;
+	background: url(../../images/login/login_body_bg.png);
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 8pt;
+}
+
+form {
+	width:100%;
+	overflow:hidden;
+}
+
+.dialog {
+	width: 344px;
+	margin: 0px auto;
+	position: relative;
+	top: 60px;
+}
+
+.product_report .dialog {
+  width: 420px;
+}
+
+.product_translations .dialog {
+  width: 520px;
+}
+
+.product_fm .dialog {
+  width: 500px;
+}
+
+.product_smm .dialog {
+  width: 400px;
+}
+
+.loginbox {
+	padding: 5px 11px 10px 11px;
+	background: url(../../images/login/loginbox_bg.png) no-repeat 1px 0;
+}
+
+.dialog .wrap {
+  background: url(../../images/login/loginbox_right_bg.png) no-repeat top right;
+}
+
+.loginbox-top {
+	background: transparent url(../../images/login/loginbox_top_bg.png) no-repeat top left;
+	height: 24px;
+	width: 32px;
+}
+
+.loginbox-top-right {
+	margin: -24px 0 0 32px;
+  background: transparent url(../../images/login/loginbox_top_right_bg.png) no-repeat top right;
+  height: 24px;
+}
+
+.loginbox-bottom {
+	background: transparent url(../../images/login/loginbox_bottom_bg.png) no-repeat top left;
+	height: 21px;
+	width: 32px;
+}
+
+.loginbox-bottom-right {
+	margin: -21px 0 0 32px;
+  background: transparent url(../../images/login/loginbox_bottom_right_bg.png)  no-repeat top right;
+  height: 21px;
+}
+
+.header {
+	background: transparent url(../../images/login/qb_logo.png) no-repeat top left;
+	height: 38px;
+	width: 186px;
+	margin: 0 auto;
+}
+
+.logoimage {
+	height: 70px;
+	margin: 0px 0px 0px 0px;
+}
+
+.hrlogo {
+	margin: 5px 20px 12px 20px;
+	background: transparent url(../../images/login/hr3.png) no-repeat 0 0;
+	height: 4px;
+}
+
+.loginform {
+  width:100%;
+	overflow:hidden;
+}
+
+.loginform dl {
+	margin: 0 0 0 0;
+}
+
+.loginform dd {
+	margin: 0 0 5px 0;
+}
+
+.loginform dt {
+	margin: 0 0 10px 0;
+}
+
+.loginform dt span {
+    color: #fff;
+    font-weight: bold;
+}
+
+.loginform label {
+	color: #adccde;
+	text-transform: uppercase;
+	font-weight: bold;
+
+	padding-left:0px;
+	margin-left:0px;
+
+}
+
+.loginform input {
+	width: 100%;
+	height: 2.2em;
+	line-height:2.2em;
+	border: 1px solid #386f90;
+	padding: 0 5px 0 5px;
+}
+
+.loginform dt textarea {
+  width: 100%;
+}
+
+.hrform {
+	margin: 5px 0 10px 0;
+	border-bottom: 1px dotted #adccde;
+}
+
+.loginform .submit_btn {
+	text-align: center;
+	margin: 0px auto;
+}
+
+.loginform .submit_btn input {
+	cursor: pointer;
+}
+
+
+
+.loginform .submit {
+	width: auto;
+	height: 41px;
+	padding: 0 20px;
+	background: transparent url(../../images/login/login_btn_bg.png) 0 0;
+	color: #fff;
+	font-weight: bold;
+	font-size: 14px;
+	border: none;
+	text-shadow: #444 1px 1px;
+}
+
+.meta {
+	margin: 0 20px 15px 20px;
+
+	overflow:hidden;
+}
+
+.headermessage {
+	float: left;
+	width: 55%;
+	color: #adccde;
+	text-transform: uppercase;
+	font-weight: bold;
+}
+
+.langswitch {
+	float: right;
+	width: 45%;
+	text-align: right;
+	color: #adccde;
+	text-transform: uppercase;
+	font-weight: bold;
+}
+
+.langswitch img {
+	background: red;
+}
+
+.langswitch a {
+	color: #adccde;
+}
+
+.access_help_link {
+	margin: 10px 0 0 0;
+	text-align: center;
+	color: #adccde;
+	/* text-transform: uppercase; */
+	font-weight: bold;
+}
+
+.access_help_link a {
+    color: #adccde;
+    text-decoration: none;
+}
+
+.message {
+	margin: 0px 20px 10px 20px;
+	color: #fff;
+	font-weight: bold;
+}
+
+.show_installation_details {
+	color: #999;
+	font-size: 14px;
+	text-align: center;
+}
+
+.versiontext {
+	font-size: 14px;
+	color: #999;
+	font-weight: bold;
+	text-align: center;
+}
+.unsupported {display: none;}
+
+.custom_login_logo {
+ padding: 0 0 15px 0;
+}
+.custom_login_logo img {width:100%}
+
+.form {
+	display:block;
+	clear: both;
+	margin:0px 20px 0px 20px;
+	width: auto;
+}

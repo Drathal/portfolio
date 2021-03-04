@@ -1,0 +1,647 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    
+  <title>Canvas Demo</title>
+  
+  <style>
+    body {
+      background-color: black;
+    }
+    
+    canvas {
+      
+    }
+    
+    #wrapouter {
+
+      
+    }    
+    
+    #wrap {
+      margin:0px auto;
+
+      width:320px;
+    }
+    
+    .c1 {
+      border:1px solid #666;
+      width:320px;
+      height:200px;
+    }
+    
+  </style>
+    
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/dojo/1.4/dojo/dojo.xd.js" djConfig="parseOnLoad: true"></script>  
+  <script type="text/javascript">
+  
+  function random( min, max ) {
+    if( min > max ) {
+      return( -1 );
+    }
+    
+    if( min == max ) {
+      return( min );
+    }
+   
+    return( min + parseInt( Math.random() * ( max-min+1 ) ) );
+  }
+  
+  function zSort(b,a)
+  {
+    return a.z - b.z;
+  }  
+  
+  function dist(a, b, c, d) 
+  {
+    return Math.sqrt((a - c) * (a - c) + (b - d) * (b - d));
+  }
+  
+  /*
+  var GLOBAL_COUNTER = 0;
+  function plasma(ctx,HEIGHT,WIDTH)
+  {
+    var GLOBAL_PIXEL_SIZE = 2;
+    
+    var GLOBAL_COUNTER_SCALE = 5;
+    var GLOBAL_TEMPERATURE = 25;
+    
+    var time = GLOBAL_COUNTER++ * GLOBAL_COUNTER_SCALE;
+
+    for( y = 0; y < HEIGHT; y+=GLOBAL_PIXEL_SIZE) {
+      for( x = 0 ; x < WIDTH; x+=GLOBAL_PIXEL_SIZE) {
+
+        var temp_val = Math.sin(dist(x + time, y        , 128 , 128 )  / 8 )
+                                + Math.cos(dist(x       , y + time , 256 , 64)   / 4 )
+                                - Math.cos(dist(x- time       , y + time , 32 , 128)   / 16 )
+        ;
+
+        var temp_col = Math.floor((1 + temp_val) * GLOBAL_TEMPERATURE );
+        
+        var rand_red = temp_col   * 2;
+        var rand_green = temp_col * 2 ;
+        var rand_blue = temp_col  * 2;
+        
+        ctx.fillStyle = "rgba("+rand_red+","+rand_green+","+rand_blue+",0.5)";
+        ctx.fillRect(x,y,GLOBAL_PIXEL_SIZE,GLOBAL_PIXEL_SIZE); 
+      }
+    }
+  }
+   */
+  
+  var star = (function () {
+    var star = function (options) {  
+      this.options = {
+        ctx:false,
+        speed:parseFloat(2),
+        spread:parseFloat(64),
+        width:320,
+        height:200,
+        num:20,
+      };      
+      // set options
+      for( var prop in options ) {
+        if ( typeof(this.options[prop]) != "undefined") {
+          this.options[prop] = options[prop];
+        }
+      }    
+    };
+    
+    star.prototype = {
+      
+      position : function(a){             
+        a.z = parseFloat(random(200,255));
+        a.x = parseFloat(random(-1000,1000));
+        a.y = parseFloat(random(-1000,1000));        
+        return a;
+      },      
+      
+      draw : function(options){
+        
+        for( var prop in options ) {
+          if ( typeof(this.options[prop]) != "undefined") {
+            this.options[prop] = options[prop];
+          }
+        }          
+        
+        var o = this.options; 
+        
+        if (typeof(this.stars) == "undefined")
+        {
+          this.stars = [];
+        }
+        
+        for (var i = 0;i<o.num;i++)
+        {
+          if (typeof(this.stars[i]) == "undefined")
+          {
+            this.stars[i] = { x:0,y:0,z:0,sx:0,sy:0,cx:o.width/2,cy:o.height/2 };
+          }
+          
+          if (this.stars[i].z < o.speed){
+            this.stars[i] = this.position(this.stars[i]);
+          }
+          
+          this.stars[i].z -= o.speed;
+          this.stars[i].sx = (this.stars[i].x*o.spread)/(this.stars[i].z)+this.stars[i].cx;      
+          this.stars[i].sy = (this.stars[i].y*o.spread)/(10+this.stars[i].z)+this.stars[i].cy;          
+          
+          if (this.stars[i].sx<0 | this.stars[i].sx>o.width){
+            this.stars[i] = this.position(this.stars[i]);
+          }
+          
+          if (this.stars[i].sy<0 | this.stars[i].sy>o.height){
+            this.stars[i] = this.position(this.stars[i]);
+          }
+          
+          var c = 255 - parseInt(this.stars[i].z);
+          o.ctx.fillStyle = "rgba("+c+", "+c+", "+c+", 1)";          
+          o.ctx.fillRect (this.stars[i].sx, this.stars[i].sy,2,2);
+
+        }
+        
+      }
+    };
+    
+    return function(options) {
+      return new star(options);
+    }
+  })();
+  
+  var sprite = (function () {
+    var sprite = function (options) {
+      
+      // defaults
+      this.options = {
+        canvas  : false,
+        
+        image   : false,
+        sx      : 0,
+        sy      : 0,
+        sWidth  : 0,
+        sHeight : 0,
+        dx      : 0,
+        dy      : 0,
+        dWidth  : 0,
+        dHeight : 0,
+        
+        fwidth  : 8,
+        fheight : 8,
+        frow    : 0,
+        
+        scale   : 1
+      }
+
+      // set options
+      for( var prop in options ) {
+        if ( typeof(this.options[prop]) != "undefined") {
+          this.options[prop] = options[prop];
+        }
+      }      
+    };
+    
+    sprite.prototype = {
+      setoptions : function(options)
+      {
+        if ( typeof(options) == "object")
+        {
+          for( var prop in options ) {
+            if ( typeof(this.options[prop]) != "undefined") {
+              this.options[prop] = options[prop];
+            }
+          }
+        }
+      },
+      setChar : function(text,options){
+        var char = 0;
+        
+        if (options){
+          this.setoptions(options);  
+        }
+        
+        if ( typeof(text) == "string") {
+          char = text.charCodeAt(0)-32;
+        } else {
+          char = text;
+        }
+        
+        this.setoptions({
+          sx:this.options.fwidth*char,
+          sy:this.options.fheight*this.options.frow,
+          sWidth:this.options.fwidth,
+          sHeight:this.options.fheight,
+          dWidth:this.options.fwidth,
+          dHeight:this.options.fheight          
+        });
+      },
+      draw : function (options) {
+        this.setoptions(options);
+        var o = this.options;
+        o["canvas"].drawImage(o["image"], o["sx"], o["sy"], o["sWidth"], o["sHeight"], o["dx"], o["dy"], o["dWidth"]*o["scale"], o["dHeight"]*o["scale"]);
+      },
+      drawText : function(string,x,y)
+      {
+        for (i=0;i<string.length;i++){
+          this.setChar(string.charCodeAt(i)-32);
+          
+          var pos = {}
+          if (typeof(x) == "number") {
+            pos.dx = (i*this.options.fwidth)+x;            
+          }
+          if (typeof(y) == "number") {
+            pos.dy = y;
+          }
+          
+          this.draw(pos);
+        }
+      },
+      clear : function (options) {
+        this.setoptions(options);
+        var o = this.options;
+        o["canvas"].clearRect(o["dx"], o["dy"], o["dx"]+o["dWidth"], o["dy"]+o["dHeight"]);
+      }
+    }    
+    
+    return function(options) {
+      return new sprite(options);
+    }
+  })();
+  
+  var animate = (function () {
+    var animate =  function (sprite,options) {
+      
+      // defaults
+      this.options = {
+        "sprite" : sprite,
+        "fps"    : 1000/30,
+        
+        "VBALL"  : {x:0,y:0,z:0}
+      }
+
+      // set options
+      for( var prop in options ) {
+        if ( typeof(this.options[prop]) != "undefined") {
+          this.options[prop] = options[prop];
+        }
+      }      
+    };
+    
+    animate.prototype = {
+      setoptions : function(options)
+      {
+        if ( typeof(options) == "object")
+        {
+          for( var prop in options ) {
+            if ( typeof(this.options[prop]) != "undefined") {              
+              this.options[prop] = options[prop];
+            }
+          }
+        }
+      },
+      inArray:function(arr,str)
+      {
+        arr[arr.length] = str;
+        var i=0;
+        while (arr[i].indexOf(str)==-1) i++;
+        if (i==arr.length-1) return false; else return true;
+      },      
+      animate : function(type,options,func)
+      {
+        // timer
+        if ( !this.options.sprite.timer || this.options.sprite.timer >= 1000 ){ this.options.sprite.timer = 0;}        
+        this.options.sprite.timer = this.options.sprite.timer+this.options.fps;        
+        this.options.sprite.t = this.options.sprite.timer / 1000;        
+        
+        // defaults
+        if (!options) options = {};
+        if (!options.frq) options.frq = 1;
+        if (!options.r) options.r = 20;
+        if (!options.o) options.o = 0;
+        if (!options.s) options.s = 0.08;
+        if (!options.m) options.m = 10;        
+                
+        if (this.inArray(type,"SINY")){
+          if (!this.options.sprite.sin) { this.options.sprite.sin = 0;}
+          this.options.sprite.sin += options.s * 2;
+          var y = Math.floor(Math.sin(this.options.sprite.sin+options.o)*options.r);
+          this.options.sprite.SINY = y;
+        }
+        
+        if (this.inArray(type,"SINX")){
+          if (!this.options.sprite.sinx) { this.options.sprite.sinx = 0;}
+          this.options.sprite.sinx += options.s;
+          var x = Math.floor(Math.sin(this.options.sprite.sinx+options.o)*options.r);
+          this.options.sprite.SINX = x;
+        }
+        
+        if (this.inArray(type,"LEFT")){
+          if (!this.options.sprite.LEFT) { this.options.sprite.LEFT = 0;}
+          if (this.options.sprite.LEFT >= options.m) { this.options.sprite.LEFT = 0;}
+          this.options.sprite.LEFT += 2;
+        }
+        
+        if (this.inArray(type,"VBALL")){
+          //todo: z-order & perspective
+          this.options.sprite.VX = this.options.VBALL.x;
+          this.options.sprite.VY = this.options.VBALL.y;
+          this.options.sprite.VZ = this.options.VBALL.z;
+          
+          if (this.angx)
+          {
+            // Rotate camera
+            this.angx += .2 * 10;
+            this.angy += .3 * 10;
+            this.angz += .5 * 10;    
+          }
+          else
+          {
+            this.angx = 0.1;
+            this.angy = 0;
+            this.angz = 0;
+          }
+          
+          // Rotate x axis
+          var x2 = this.options.sprite.VX;
+          var y2 = this.options.sprite.VY * Math.cos(this.angx/127.0) - this.options.sprite.VZ * Math.sin(this.angx/127.0);
+          var z2 = this.options.sprite.VY * Math.sin(this.angx/127.0) + this.options.sprite.VZ * Math.cos(this.angx/127.0);
+          
+          // Rotate y axis
+          var x3 = x2 * Math.cos(this.angy/127.0) + z2 * Math.sin(this.angy/127.0);
+          var y3 = y2;
+          var z3 = -x2 * Math.sin(this.angy/127.0) + z2 * Math.cos(this.angy/127.0);        
+          
+          // Rotate z axis
+          var x4 = x3 * Math.cos(this.angz/127.0) - y3 * Math.sin(this.angz/127.0);
+          var y4 = x3 * Math.sin(this.angz/127.0) + y3 * Math.cos(this.angz/127.0);
+          var z4 = z3;
+          
+          this.options.sprite.options.scale = ((1/(z4+256)*100)/2)+0.2;
+          x4 = x4 * 1.5 * this.options.sprite.options.scale + 1;
+          y4 = y4 * 1.5 * this.options.sprite.options.scale + 1;
+            
+          this.options.sprite.X = x4;
+          this.options.sprite.Y = y4;
+          this.options.sprite.Z = z4;
+
+        }
+        
+        
+        
+        if (this.inArray(type,"BLINK")){
+          if (this.options.sprite.t <= options.frq){
+            return; 
+          }
+        }
+        
+        this.options.sprite.func = func;
+        this.options.sprite.parent = this;
+        this.options.sprite.func();
+
+      }
+    }    
+    
+    return function(sprite,options) {
+      return new animate(sprite,options);
+    }
+  })();  
+
+  var ctool = {
+    
+    fps       : 1000/30,
+    img_paths : ["images/font.png","images/fontbig.png","images/ball3.png","images/bg.png","images/logo.png"],
+    font1     : {"image":0,"height":8,"width":8,"row":0},
+    font2     : {"image":0,"height":8,"width":8,"row":2},
+    font3     : {"image":0,"height":8,"width":8,"row":3},
+    font4     : {"image":1,"height":16,"width":8,"row":0},
+    
+    gametimer : false,
+    ctx       : false,
+    cacheNode : false,
+    img_nr    : 0,
+    loadedimg : 0,
+    img_nodes : [],
+    timer     : [],
+    timerindex: false,
+            
+    canvas_width  : 320,
+    canvas_height : 200,
+    canvas        : false,
+    
+    /* init */
+    init : function(){
+      this.preload(this.img_paths);
+      dojo.connect(this,"allImagesLoaded",this,this.setupCanvas);
+    },    
+    
+    /* connect for loaded images */
+    allImagesLoaded : function(){
+
+    },
+    
+    /* on single image loaded */
+    onLoadImage : function(){
+      this.loadedimg = this.loadedimg + 1;
+      if (this.loadedimg == this.img_nr) {
+        this.allImagesLoaded();
+      }
+    },
+    
+    /* preload array of images */
+    preload : function(urls){
+      if(!this.cacheNode) { 
+        this.cacheNode = dojo.create("div", { style:{ position:"absolute", top:"-9999px", height:"1px", overflow:"hidden" } }, dojo.body() );
+      }
+      
+      return dojo.map(urls, dojo.hitch(this, function(url){        
+        this.img_nodes[this.img_nr] = dojo.create("img", { src: url }, this.cacheNode);        
+        dojo.connect(this.img_nodes[this.img_nr],"onload",this,this.onLoadImage);
+        this.img_nr = this.img_nr + 1;
+        return this.img_nodes[this.img_nr];
+      }));
+    },
+    
+    /* clear ... */
+    clearCanvas:function(ctx) {
+      ctx.clearRect(0,0,this.canvas_width,this.canvas_height);
+    },    
+    
+    /* setup our canvas */
+    setupCanvas : function()
+    {
+      this.canvas = dojo.create("canvas", { class: "c1",width:this.canvas_width+"px",height:this.canvas_height+"px" }, dojo.byId("wrap"), "first");      
+      this.ctx = this.canvas.getContext('2d');
+      
+      // setup sprites & animation
+      var f = this.font1;
+      var s  = {"canvas":this.ctx, "image":this.img_nodes[f.image], fwidth:f.width, fheight:f.height, row:f.row};
+      
+      var f = this.font4;
+      var s2 = {"canvas":this.ctx, "image":this.img_nodes[f.image], fwidth:f.width, fheight:f.height, row:f.row};
+      var a  = {fps:this.fps};
+      
+      this.bg = new sprite({"canvas":this.ctx, "image":this.img_nodes[3], sWidth:320, sHeight:200, dWidth:320, dHeight:200 });
+      
+   
+      this.sprite = new sprite(s);      
+      this.anim   = new animate(this.sprite,a);
+      
+      this.sprite2 = new sprite(s);      
+      this.anim2   = new animate(this.sprite2,a);
+      
+      this.sprite3 = new sprite(s);      
+      this.anim3   = new animate(this.sprite3,a);
+      
+      this.sprite4 = new sprite(s);
+
+      
+      this.scrollchar   = [];
+      this.scrollanim   = [];
+      var max = (this.canvas_width / 8) + 2;
+      for (var i=0;i<=max;i++)
+      {
+        this.scrollchar[i] = new sprite(s2);
+        this.scrollanim[i] = new animate(this.scrollchar[i],a);
+      }
+      
+      
+      this.logo = new sprite({"canvas":this.ctx, "image":this.img_nodes[4], sWidth:219, sHeight:70, dWidth:219, dHeight:70 });
+      this.logoanim = new animate(this.logo,a);
+        
+      
+      this.star = new star({ctx:this.ctx});
+  
+      
+      this.vectorballs = [];
+      this.vectoranim  = [];
+      
+      // GP
+      this.vectorObject = {
+        x : [0,1,2,3,4,6 ,0,4,6 ,0,2,3,4,6,7,8,9 ,0,6,9 ,0,1,2,3,4,6,7,8,9],
+        y : [0,0,0,0,0,0 ,1,1,1 ,2,2,2,2,2,2,2,2 ,3,3,3 ,4,4,4,4,4,4,4,4,4],
+        z : [0,0,0,0,0,0 ,0,0,0 ,0,0,0,0,0,0,0,0 ,0,0,0 ,0,0,0,0,0,0,0,0,0]
+      };
+      
+      // QUAD
+      this.vectorObject = {
+        x : [-2,-1, 0, 1, 2   ,-2,-2,-2,-2,-2,    2, 2, 2, 2, 2   ,-2,-1, 0, 1, 2,   -2,-1, 0, 1, 2   ,-2,-2,-2,-2,-2,    2, 2, 2, 2, 2   ,-2,-1, 0, 1, 2    ,-2,-2,-2,-2,-2,   -2,-2,-2,-2,-2,    2, 2, 2, 2, 2,    2, 2, 2, 2, 2],
+        y : [-2,-2,-2,-2,-2   ,-2,-1, 0, 1, 2,   -2,-1, 0, 1, 2   , 2, 2, 2, 2, 2,   -2,-2,-2,-2,-2   ,-2,-1, 0, 1, 2,   -2,-1, 0, 1, 2   , 2, 2, 2, 2, 2    , 2, 2, 2, 2, 2,   -2,-2,-2,-2,-2,    2, 2, 2, 2, 2,   -2,-2,-2,-2,-2],
+        z : [-2,-2,-2,-2,-2   ,-2,-2,-2,-2,-2,   -2,-2,-2,-2,-2   ,-2,-2,-2,-2,-2,    2, 2, 2, 2, 2   , 2, 2, 2, 2, 2,    2, 2, 2, 2, 2   , 2, 2, 2, 2, 2    ,-2,-1, 0, 1, 2,   -2,-1, 0, 1, 2,   -2,-1, 0, 1, 2,   -2,-1, 0, 1, 2]
+      };      
+      
+      for (var i=0;i<=this.vectorObject.x.length-1;i++)
+      {
+        this.vectorballs[i] = new sprite({"canvas":this.ctx, "image":this.img_nodes[2], sWidth:32, sHeight:32, dWidth:32, dHeight:32 });
+        this.vectoranim[i] = new animate(this.vectorballs[i],{
+          "fps"   : this.fps,
+          "VBALL" : {
+            x:(this.vectorObject.x[i]-5)*20,
+            y:this.vectorObject.y[i]*20,
+            z:this.vectorObject.z[i]*20
+          }
+        });                
+      }
+      
+      this.gametimer = setTimeout(dojo.hitch(this,this.mainLoop),10);	
+    },
+    
+    mainLoop : function()
+    {
+      var start = new Date();
+
+
+      //this.ctx.save();
+      this.clearCanvas(this.ctx);
+
+      this.bg.draw();
+      
+      this.star.draw({num:40});
+      
+      // zSort
+      var ZZ = [];
+      for (var i=0;i<=this.vectorObject.x.length-1;i++)
+      {
+        ZZ[i] = {z:this.vectorballs[i].Z,i:i};
+      }
+      ZZ.sort(zSort);
+      
+      for (var i=0;i<=this.vectorObject.x.length-1;i++)
+      {
+        this.vectoranim[ZZ[i].i].animate(["VBALL"],{},function(){
+          this.draw({dx:160+this.X,dy:100+this.Y});
+        });
+      }
+
+      this.logoanim.animate(["SINX"],{r:80},function(){        
+        this.draw({dx:50+this.SINX,dy:20});
+      });       
+      
+  
+      var max = (this.canvas_width / 8) + 2;
+      for (var i=max;i>=0;i--)
+      {
+        this.scrollanim[i].animate(["LEFT","SINY"],{o:0.1*i,m:this.canvas_width*2,r:40},function(){
+          this.scrollertext = "Mein Job bei Globalpark HTML5 Demo.                          ";
+          var p = 320-this.LEFT+(i*8);
+          this.drawText(this.scrollertext[i],p,this.SINY+100);
+        });
+      }
+     /*
+      
+    
+      this.sprite4.drawText("STATIC TEXT",0,0);
+
+      this.anim.animate(["BLINK"],{frq:0.5},function(){        
+        this.drawText("** BLINK **",0,170);
+      });
+      
+      this.anim2.animate(["SINY"],false,function(){        
+        this.drawText("Schwupp",100,this.SINY+100);
+      });
+      
+      this.anim3.animate(["SINX"],{r:40},function(){        
+        this.drawText(".",this.SINX+100,100);
+      });
+     
+      
+      */
+      
+      
+       var end = new Date();
+
+            
+      //this.ctx.restore();      
+      this.gametimer = setTimeout(dojo.hitch(this,this.mainLoop),this.fps);
+      
+    }
+    
+  };
+
+
+  
+  dojo.addOnLoad(function() {
+    ctool.init();
+  });
+  
+  
+  
+
+  
+  </script>
+</head>
+
+<body class="tundra">
+
+<div id="wrapouter">
+<div id="wrap">
+ 
+</div>
+</div>
+
+
+
+
+
+</body>
+</html>

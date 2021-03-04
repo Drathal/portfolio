@@ -27,6 +27,19 @@ const useStyles = makeStyles({
     float: 'right',
     margin: '1rem 0.5rem',
     padding: '.5rem'
+  },
+  list: {
+    margin: 0,
+    padding: 0,
+    'list-style-type': 'none',
+    display: 'inline-flex',
+    'flex-wrap': 'wrap',
+    gap: '2rem'
+  },
+  listitem: {
+    margin: 0,
+    padding: 0,
+    flex: 'auto'
   }
 })
 
@@ -35,61 +48,59 @@ const ProjectList: FC<IProps> = ({ projects }) => {
   if (!projects) return null
 
   return (
-    <div>
-      <ul>
-        {projects &&
-          projects.map((project) => {
-            const projectlink = project.frontmatter.link
-              ? project.frontmatter.link
-              : `/project/${project.slug}`
+    <ul className={classes.list}>
+      {projects &&
+        projects.map((project) => {
+          const projectlink = project.frontmatter.link
+            ? project.frontmatter.link
+            : `/project/${project.slug}`
 
-            const projecttarget = project.frontmatter.link ? '_blank' : null
+          const projecttarget = project.frontmatter.link ? '_blank' : null
 
-            return (
-              <li key={project.slug}>
-                <Link
-                  href={{
-                    pathname: projectlink
-                  }}
-                >
-                  <a target={projecttarget}>
-                    <Card className={classes.root}>
-                      <CardActionArea>
-                        <Chip
-                          className={classes.chip}
-                          size="small"
-                          label={project.frontmatter.year}
-                          color="secondary"
-                        />
-                        <CardMedia
-                          className={classes.media}
-                          image={`/thumbs/${project.frontmatter.thumb}`}
-                          title="Contemplative Reptile"
-                        />
-                        <CardContent>
-                          <Typography variant="h5" component="h2">
-                            {project.frontmatter.title}
-                          </Typography>
-                          <Typography gutterBottom variant="h6" component="h3">
-                            {project.frontmatter.subtitle}
-                          </Typography>
-                          <Typography
-                            variant="body2"
-                            color="textSecondary"
-                            component="span"
-                          >
-                            <ReactMarkdown source={project.markdownBody} />
-                          </Typography>
-                        </CardContent>
-                      </CardActionArea>
-                    </Card>
-                  </a>
-                </Link>
-              </li>
-            )
-          })}
-      </ul>
-    </div>
+          return (
+            <li key={project.slug} className={classes.listitem}>
+              <Link
+                href={{
+                  pathname: projectlink
+                }}
+              >
+                <a target={projecttarget}>
+                  <Card className={classes.root}>
+                    <CardActionArea>
+                      <Chip
+                        className={classes.chip}
+                        size="small"
+                        label={project.frontmatter.year}
+                        color="secondary"
+                      />
+                      <CardMedia
+                        className={classes.media}
+                        image={`/thumbs/${project.frontmatter.thumb}`}
+                        title="Contemplative Reptile"
+                      />
+                      <CardContent>
+                        <Typography variant="h5" component="h2">
+                          {project.frontmatter.title}
+                        </Typography>
+                        <Typography gutterBottom variant="h6" component="h3">
+                          {project.frontmatter.subtitle}
+                        </Typography>
+                        <Typography
+                          variant="body2"
+                          color="textSecondary"
+                          component="span"
+                        >
+                          <ReactMarkdown source={project.markdownBody} />
+                        </Typography>
+                      </CardContent>
+                    </CardActionArea>
+                  </Card>
+                </a>
+              </Link>
+            </li>
+          )
+        })}
+    </ul>
   )
 }
 
