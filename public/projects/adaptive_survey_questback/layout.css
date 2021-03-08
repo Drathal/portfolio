@@ -1,4 +1,4 @@
-@import "http://fonts.googleapis.com/css?family=Droid+Sans:400,700";
+@import 'https://fonts.googleapis.com/css?family=Droid+Sans:400,700';
 body {
   background: #222222;
 }
@@ -21,7 +21,7 @@ body {
   display: block;
   position: absolute;
   z-index: -2;
-  content: "";
+  content: '';
 }
 .container .progress.progress-active:before,
 .container .progress.progress-active:after {
@@ -75,7 +75,7 @@ body {
   display: block;
   position: absolute;
   z-index: -2;
-  content: "";
+  content: '';
 }
 .question:before,
 .question:after {
@@ -132,7 +132,7 @@ body {
   display: block;
   position: absolute;
   z-index: -2;
-  content: "";
+  content: '';
 }
 .message:before,
 .message:after {
@@ -196,10 +196,10 @@ form {
 .question label,
 .question .tag-header p,
 body {
-  font-family: "Droid Sans", sans-serif;
+  font-family: 'Droid Sans', sans-serif;
 }
 h2 {
-  font-family: "Droid Sans", sans-serif !important;
+  font-family: 'Droid Sans', sans-serif !important;
   font-size: 1.5em !important;
 }
 body {
@@ -255,7 +255,7 @@ body {
   display: block;
   position: absolute;
   z-index: -2;
-  content: "";
+  content: '';
 }
 #header .custom:before,
 #header .custom:after {
@@ -301,7 +301,7 @@ body {
   display: block;
   position: absolute;
   z-index: -2;
-  content: "";
+  content: '';
 }
 .message.message-block h2,
 .question .tag-header h2 {
@@ -348,7 +348,7 @@ body {
 .message.message-block h2:after,
 .question h2:after {
   position: absolute;
-  content: "";
+  content: '';
   display: block;
 }
 .message.message-block h2:after,
