@@ -70,12 +70,14 @@ const Header: FC = () => {
           <AppBar color="secondary">
             <Toolbar>
               <Typography variant="h6" className={classes.title}>
-                Markus Dethlefsen - Portfolio
+                <Link href="/">
+                  <a>Markus Dethlefsen</a>
+                </Link>
               </Typography>
 
               <Button color="inherit">
                 <Link href="/">
-                  <a>Projects</a>
+                  <a>Timeline</a>
                 </Link>
               </Button>
 
