@@ -12,6 +12,7 @@ import TimelineDot from '@material-ui/lab/TimelineDot'
 import Card from '@material-ui/core/Card'
 import CardActionArea from '@material-ui/core/CardActionArea'
 import CardMedia from '@material-ui/core/CardMedia'
+import Album from '@material-ui/icons/Album'
 
 interface IProps {
   slug: string
@@ -47,12 +48,13 @@ const useStyles = makeStyles((theme) => ({
     }
   },
   contentCard: {
+    margin: '1rem 0 0',
     [theme.breakpoints.down('sm')]: {
       padding: '0.5rem 0'
     }
   },
   year: {
-    margin: '0 0 0.5rem 0'
+    margin: '0.75rem 0 0.5rem 0'
   },
   cardMedia: {
     height: 300
@@ -119,7 +121,9 @@ export const Item: FC<IProps> = ({
         </Link>
       </TimelineOppositeContent>
       <TimelineSeparator className={classes.separator}>
-        <TimelineDot color="primary" />
+        <TimelineDot color="primary">
+          <Album />
+        </TimelineDot>
         <TimelineConnector />
       </TimelineSeparator>
       <TimelineContent className={classes.contentCard}>

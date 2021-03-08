@@ -15,7 +15,6 @@ interface IProps {
 const Index: FC<IProps> = ({ projects, title, description }) => {
   return (
     <Layout pageTitle={title}>
-      <h1 className="title">{title}</h1>
       <p>{description}</p>
       <main>
         <ProjectList projects={projects} />
