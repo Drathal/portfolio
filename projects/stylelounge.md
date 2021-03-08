@@ -4,4 +4,4 @@ subtitle: 'Senior Software Architect'
 year: '2017'
 ---
 
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.
+I was responsible for the Frontendpart of the Web Application. .... nore to write later :D

@@ -4,4 +4,4 @@ subtitle: 'Senior System Engineer'
 year: '2014'
 ---
 
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.
+I started as a Frontend Developer using C# and IIS. After a while i drove a Microservice Initiative with some of my colleagues. I was Part of the Team that introduced node.js and angular.js. We showed that we can refactor and scale parts of the business logic without rewriting the whole Monolothic Application.

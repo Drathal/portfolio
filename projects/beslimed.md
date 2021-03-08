@@ -6,6 +6,9 @@ thumb: 'beslimed.jpg'
 link: '/projects/beslimed/index.html'
 ---
 
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.
+Private Project to see if i can build a simple Game thats fast enough, without using Canvas.
 
-
+{{Javascript}}
+{{Mootools}}
+{{HTML}}
+{{CSS}}
