@@ -84,7 +84,7 @@ const options = (dark: boolean): ThemeOptions => {
       body1: {
         fontFamily: 'Lato',
         fontSize: '18px',
-        lineHeight: '140%',
+        lineHeight: '120%',
         letterSpacing: '0.5px'
       },
       body2: {

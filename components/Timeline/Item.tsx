@@ -31,6 +31,20 @@ const useStyles = makeStyles((theme) => ({
       '&:nth-child(even)': {
         flexDirection: 'column-reverse'
       }
+    },
+    [theme.breakpoints.up('md')]: {
+      '&:nth-child(odd) .MuiTimelineItem-oppositeContent': {
+        '& ul': {
+          direction: 'rtl',
+          padding: '1rem 1.25rem 1rem 0'
+        }
+      },
+      '&:nth-child(even) .MuiTimelineItem-oppositeContent': {
+        '& ul': {
+          direction: 'ltr',
+          padding: '1rem 0 1rem 1.25rem'
+        }
+      }
     }
   },
   separator: {
@@ -41,10 +55,20 @@ const useStyles = makeStyles((theme) => ({
   content: {
     minHeight: '300px',
     marginBottom: '4rem',
+
     [theme.breakpoints.down('sm')]: {
       minHeight: 'auto',
       padding: '0.5rem 0',
       textAlign: 'left'
+    },
+    '& ul': {
+      color: theme.palette.text.hint
+    },
+    '& li': {
+      fontSize: '0.98rem',
+      listStyleType: 'disc',
+      marginBottom: '0.5rem',
+      lineHeight: '110%'
     }
   },
   contentCard: {
@@ -60,9 +84,9 @@ const useStyles = makeStyles((theme) => ({
     height: 300
   },
   pill: {
-    fontSize: '0.95rem',
-    background: '#0a7500',
-    padding: '0.25rem 0.8rem 0.4rem',
+    fontSize: '0.85rem',
+    background: '#0a7500aa',
+    padding: '0.25rem 0.8rem 0.3rem',
     borderRadius: '2rem',
     color: '#fff',
     lineHeight: '2.2rem',
