@@ -4,7 +4,7 @@ export const paletteColorsDark = {
   primary: '#0f4c75',
   secondary: '#3282b8',
   error: '#E44C65',
-  background: '#1b262c',
+  background: '#090A0F',
   text: '#bbe1fa'
 }
 
@@ -84,7 +84,7 @@ const options = (dark: boolean): ThemeOptions => {
       body1: {
         fontFamily: 'Lato',
         fontSize: '18px',
-        lineHeight: '200%',
+        lineHeight: '140%',
         letterSpacing: '0.5px'
       },
       body2: {

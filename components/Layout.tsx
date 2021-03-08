@@ -1,10 +1,10 @@
 import { FC } from 'react'
 import Head from 'next/head'
+import Container from '@material-ui/core/Container'
+import CssBaseline from '@material-ui/core/CssBaseline'
 
 import Header from './Header'
-import GridContainer from '../components/Grid/GridContainer'
-import GridItem from '../components/Grid/GridItem'
-
+import Starfield from './Starfield'
 interface IProps {
   pageTitle: string
 }
@@ -12,21 +12,23 @@ interface IProps {
 const Layout: FC<IProps> = ({ children, pageTitle }) => {
   return (
     <>
+      <CssBaseline />
+      <Starfield />
+
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>{pageTitle}</title>
       </Head>
 
-      <GridContainer justify="center">
-        <GridItem xs={12} sm={10} md={6}>
-          <section className="layout">
-            <Header />
-            <div className="content">{children}</div>
-          </section>
-        </GridItem>
-      </GridContainer>
+      <Header />
 
-      <footer>...</footer>
+      <Container fixed>
+        <section className="layout">
+          <div className="content">{children}</div>
+        </section>
+      </Container>
+
+      <footer></footer>
     </>
   )
 }
