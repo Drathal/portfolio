@@ -2,6 +2,7 @@ import { FC } from 'react'
 import Head from 'next/head'
 import Container from '@material-ui/core/Container'
 import CssBaseline from '@material-ui/core/CssBaseline'
+import { makeStyles } from '@material-ui/core/styles'
 
 import Header from './Header'
 import Starfield from './Starfield'
@@ -9,7 +10,14 @@ interface IProps {
   pageTitle: string
 }
 
+const useStyles = makeStyles(() => ({
+  container: {
+    marginTop: '2rem'
+  }
+}))
+
 const Layout: FC<IProps> = ({ children, pageTitle }) => {
+  const classes = useStyles()
   return (
     <>
       <CssBaseline />
@@ -22,10 +30,8 @@ const Layout: FC<IProps> = ({ children, pageTitle }) => {
 
       <Header />
 
-      <Container fixed>
-        <section className="layout">
-          <div className="content">{children}</div>
-        </section>
+      <Container fixed className={classes.container}>
+        {children}
       </Container>
 
       <footer></footer>

@@ -21,6 +21,9 @@ const useStyles = makeStyles((theme: Theme) =>
     title: {
       flexGrow: 1
     },
+    appBar: {
+      backgroundColor: 'rgba(0,0,0,0.8)'
+    },
     rootZoom: {
       position: 'fixed',
       bottom: theme.spacing(2),
@@ -65,32 +68,35 @@ const Header: FC = () => {
   const classes = useStyles()
   return (
     <>
-      <header className="header">
-        <nav className="nav">
-          <AppBar color="secondary">
-            <Toolbar>
-              <Typography variant="h6" className={classes.title}>
-                <Link href="/">
-                  <a>Markus Dethlefsen</a>
-                </Link>
-              </Typography>
+      <nav className="nav">
+        <AppBar
+          classes={{
+            root: classes.appBar
+          }}
+        >
+          <Toolbar>
+            <Typography variant="h6" className={classes.title}>
+              <Link href="/">
+                <a>Markus Dethlefsen</a>
+              </Link>
+            </Typography>
 
-              <Button color="inherit">
-                <Link href="/">
-                  <a>Timeline</a>
-                </Link>
-              </Button>
+            <Button color="inherit">
+              <Link href="/">
+                <a>Timeline</a>
+              </Link>
+            </Button>
 
-              <Button color="inherit">
-                <Link href="/about">
-                  <a>About</a>
-                </Link>
-              </Button>
-            </Toolbar>
-          </AppBar>
-          <Toolbar id="back-to-top-anchor" />
-        </nav>
-      </header>
+            <Button color="inherit">
+              <Link href="/about">
+                <a>About</a>
+              </Link>
+            </Button>
+          </Toolbar>
+        </AppBar>
+        <Toolbar id="back-to-top-anchor" />
+      </nav>
+
       <ScrollTop>
         <Fab color="secondary" size="small" aria-label="scroll back to top">
           <KeyboardArrowUpIcon />

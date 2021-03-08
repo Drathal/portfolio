@@ -1,12 +1,14 @@
 import { FC } from 'react'
-import Link from 'next/link'
 import { GetStaticProps, GetStaticPaths } from 'next'
+import { makeStyles } from '@material-ui/core/styles'
+import Typography from '@material-ui/core/Typography'
 import matter from 'gray-matter'
-import ReactMarkdown from 'react-markdown'
+import ReactMarkdown from 'react-markdown/with-html'
 
 import { FrontmatterProject } from '../../projects/interface'
 import { slugsFromFilenames } from '../../utils'
 import Layout from '../../components/Layout'
+import { replacePills, pillsStyle } from '../../theme/pills.style'
 
 interface IProps {
   siteTitle: string
@@ -14,19 +16,25 @@ interface IProps {
   markdownBody: string
 }
 
+const useStyles = makeStyles(() => ({
+  pill: pillsStyle()
+}))
+
 const Project: FC<IProps> = ({ siteTitle, frontmatter, markdownBody }) => {
+  const classes = useStyles()
   if (!frontmatter) return null
+
+  const text = replacePills(markdownBody, classes.pill)
 
   return (
     <Layout pageTitle={`${siteTitle} | ${frontmatter.title}`}>
-      <Link href="/">
-        <a>Projects</a>
-      </Link>
       <article>
-        <h1>{frontmatter.title}</h1>
-        <div>
-          <ReactMarkdown source={markdownBody} />
-        </div>
+        <Typography variant="h5" component="h2">
+          {frontmatter.title}
+        </Typography>
+        <Typography variant="body1" color="textSecondary" component="span">
+          <ReactMarkdown allowDangerousHtml source={text} />
+        </Typography>
       </article>
     </Layout>
   )

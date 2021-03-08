@@ -14,6 +14,8 @@ import CardActionArea from '@material-ui/core/CardActionArea'
 import CardMedia from '@material-ui/core/CardMedia'
 import Album from '@material-ui/icons/Album'
 
+import { replacePills, pillsStyle } from '../../theme/pills.style'
+
 interface IProps {
   slug: string
   link?: string
@@ -83,23 +85,8 @@ const useStyles = makeStyles((theme) => ({
   cardMedia: {
     height: 300
   },
-  pill: {
-    fontSize: '0.85rem',
-    background: '#0a7500aa',
-    padding: '0.25rem 0.8rem 0.3rem',
-    borderRadius: '2rem',
-    color: '#fff',
-    lineHeight: '2.2rem',
-    whiteSpace: 'nowrap'
-  }
+  pill: pillsStyle()
 }))
-
-const replacePills = (text: string, className: string) =>
-  text
-    .split('{{')
-    .join(`<span class="${className}">`)
-    .split('}}')
-    .join('</span>')
 
 export const Item: FC<IProps> = ({
   slug,
