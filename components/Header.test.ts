@@ -1,7 +1,7 @@
 import Header from './Header'
 
 describe('dummy test', () => {
-  test('dummmmyy', () => {
+  test('dummy', () => {
     expect(Header).toBeDefined()
   })
 })

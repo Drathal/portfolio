@@ -4,13 +4,14 @@ subtitle: 'Senior Software Developer'
 year: '2019'
 ---
 
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.
+FINANZCHECK.de is the fastest growing loan comparison portal in Germany. Around 370 employees are currently working with a lot of passion.
 
 {{Docker}}
 {{Kubernetes}}
 {{node.js}}
 {{xSQL}}
 {{AWS}}
+{{Cognito}}
 {{Javascript}}
 {{Typescript}}
 {{React.js}}

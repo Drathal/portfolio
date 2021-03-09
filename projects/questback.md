@@ -1,6 +1,6 @@
 ---
 title: 'Questback'
-subtitle: 'Senior Frontend Entwickler'
+subtitle: 'Senior Frontend Developer'
 year: '2002'
 ---
 

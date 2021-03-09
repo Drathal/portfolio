@@ -6,7 +6,7 @@ thumb: 'about_me.jpg'
 link: '/projects/about_me/index.html'
 ---
 
-I build a presentation Enginge that converts markdown files to HTML Presentations. At this time i held many Techtalks and wanted something 'nice' to present my Slides.
+I build a presentation Engine that converts markdown files to HTML Presentations. At this time i held many Techtalks and wanted something 'nice' to present my Slides.
 
 {{PHP}}
 {{Javascript}}

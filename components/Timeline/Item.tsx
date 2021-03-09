@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import Link from 'next/link'
-import { makeStyles } from '@material-ui/core/styles'
 import ReactMarkdown from 'react-markdown/with-html'
+import { makeStyles } from '@material-ui/core'
 import Typography from '@material-ui/core/Typography'
 import TimelineItem from '@material-ui/lab/TimelineItem'
 import TimelineSeparator from '@material-ui/lab/TimelineSeparator'
