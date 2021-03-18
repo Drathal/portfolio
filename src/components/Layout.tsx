@@ -12,7 +12,8 @@ interface IProps {
 
 const useStyles = makeStyles(() => ({
   container: {
-    marginTop: '2rem'
+    marginTop: '2rem',
+    position: 'relative'
   }
 }))
 

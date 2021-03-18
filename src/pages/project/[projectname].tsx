@@ -5,7 +5,7 @@ import Typography from '@material-ui/core/Typography'
 import matter from 'gray-matter'
 import ReactMarkdown from 'react-markdown/with-html'
 
-import { FrontmatterProject } from '../../projects/interface'
+import { FrontmatterProject } from '../../types'
 import { slugsFromFilenames } from '../../utils'
 import Layout from '../../components/Layout'
 import { replacePills, pillsStyle } from '../../theme/pills.style'
@@ -52,7 +52,7 @@ export const getStaticProps: GetStaticProps = async ({
   const { projectname } = params
 
   const content = await import(`../../projects/${projectname}.md`)
-  const config = await import(`../../siteconfig.json`)
+  const config = await import(`../../../siteconfig.json`)
   const data = matter(content.default)
 
   return {

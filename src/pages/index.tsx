@@ -4,7 +4,7 @@ import { GetStaticProps } from 'next'
 import { projectListFromDirectory } from '../utils'
 import Layout from '../components/Layout'
 import ProjectList from '../components/ProjectList'
-import { ProjectType } from '../interface'
+import { ProjectType } from '../types'
 
 interface IProps {
   title: string

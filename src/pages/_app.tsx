@@ -2,7 +2,7 @@ import React, { useEffect, useState, ReactNode, CSSProperties } from 'react'
 import { AppProps } from 'next/app'
 
 import { ThemeProvider } from '../theme'
-import styles from '../styles/App.module.css'
+import styles from '../theme/App.module.css'
 
 const MyApp = ({ Component, pageProps }: AppProps): ReactNode => {
   const [style, setStyle] = useState<CSSProperties>({
