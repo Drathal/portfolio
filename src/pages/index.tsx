@@ -4,7 +4,7 @@ import { GetStaticProps } from 'next'
 import { projectListFromDirectory } from '../utils'
 import Layout from '../components/Layout'
 import ProjectList from '../components/ProjectList'
-import { ProjectType } from '../projects/interface'
+import { ProjectType } from '../interface'
 
 interface IProps {
   title: string
@@ -26,9 +26,9 @@ const Index: FC<IProps> = ({ projects, title, description }) => {
 export default Index
 
 export const getStaticProps: GetStaticProps = async () => {
-  const configData = await import(`../siteconfig.json`)
+  const configData = await import(`../../siteconfig.json`)
   const projects = projectListFromDirectory(
-    require.context('../projects', true, /\.md$/)
+    require.context('../../projects', true, /\.md$/)
   )
 
   return {
