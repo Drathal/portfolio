@@ -28,7 +28,7 @@ export default Index
 export const getStaticProps: GetStaticProps = async () => {
   const configData = await import(`../../siteconfig.json`)
   const projects = projectListFromDirectory(
-    require.context('../../projects', true, /\.md$/)
+    require.context('../projects', true, /\.md$/)
   )
 
   return {
