@@ -1,5 +1,5 @@
 import matter from 'gray-matter'
-import { ProjectType } from '../projects/interface'
+import { ProjectType } from '../types'
 
 export const slugsFromFilenames = (
   ctx: __WebpackModuleApi.RequireContext
