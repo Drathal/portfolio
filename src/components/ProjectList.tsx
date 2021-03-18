@@ -2,7 +2,7 @@ import { FC } from 'react'
 import Timeline from '@material-ui/lab/Timeline'
 import { makeStyles } from '@material-ui/core/styles'
 
-import { ProjectType } from '../projects/interface'
+import { ProjectType } from '../types'
 import { Item } from './Timeline'
 
 interface IProps {
