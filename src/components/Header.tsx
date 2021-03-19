@@ -10,6 +10,7 @@ import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp'
 import useScrollTrigger from '@material-ui/core/useScrollTrigger'
+import Container from '@material-ui/core/Container'
 
 interface Props {
   window?: () => Window
@@ -28,6 +29,9 @@ const useStyles = makeStyles((theme: Theme) =>
       position: 'fixed',
       bottom: theme.spacing(2),
       right: theme.spacing(2)
+    },
+    toolbar: {
+      padding: 0
     }
   })
 )
@@ -74,25 +78,27 @@ const Header: FC = () => {
             root: classes.appBar
           }}
         >
-          <Toolbar>
-            <Typography variant="h6" className={classes.title}>
-              <Link href="/">
-                <a>Markus Dethlefsen</a>
-              </Link>
-            </Typography>
+          <Container fixed>
+            <Toolbar className={classes.toolbar}>
+              <Typography variant="h6" className={classes.title}>
+                <Link href="/">
+                  <a>Markus Dethlefsen</a>
+                </Link>
+              </Typography>
 
-            <Button color="inherit">
-              <Link href="/">
-                <a>Timeline</a>
-              </Link>
-            </Button>
+              <Button color="inherit">
+                <Link href="/">
+                  <a>Timeline</a>
+                </Link>
+              </Button>
 
-            <Button color="inherit">
-              <Link href="/about">
-                <a>About</a>
-              </Link>
-            </Button>
-          </Toolbar>
+              <Button color="inherit">
+                <Link href="/about">
+                  <a>About</a>
+                </Link>
+              </Button>
+            </Toolbar>
+          </Container>
         </AppBar>
         <Toolbar id="back-to-top-anchor" />
       </nav>
