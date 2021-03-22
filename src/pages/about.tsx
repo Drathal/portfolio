@@ -79,15 +79,19 @@ const About: FC<IProps> = ({ title }) => {
       <Typography variant="body1" color="textSecondary" component="span">
         Senior Software Developer bei FFG Finanzcheck Finanzportale GmbH
       </Typography>
+    </Layout>
+  )
+}
+
+/*
 
       <div className={classes.portrait}>
         <div className={classes.planet + ' ' + classes.top}></div>
         <div className={classes.ring}></div>
         <div className={classes.planet + ' ' + classes.bottom}></div>
       </div>
-    </Layout>
-  )
-}
+
+*/
 
 export default About
 
