@@ -14,7 +14,7 @@ const stars = (size: number, blurRadius = 0): string[] =>
 
 const useStyles = makeStyles({
   bg: {
-    background: 'radial-gradient(center, #15304d 0%, #090A0F 100%)',
+    background: 'radial-gradient(center, #0C2D41 0%, #090A0F 100%)',
     overflow: 'hidden',
     position: 'fixed',
     top: 0,

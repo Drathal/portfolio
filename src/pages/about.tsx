@@ -19,8 +19,8 @@ const useStyles = makeStyles(() => ({
   portrait: {
     width: '400px',
     height: '400px',
-    position: 'absolute',
-    margin: 'auto',
+    position: 'relative',
+    margin: '0 auto',
     left: 0
   },
   planet: {
@@ -60,10 +60,10 @@ const useStyles = makeStyles(() => ({
       rgba(0,0,0,0) 100%)`,
     transform: 'rotateX(75deg) skewY(37deg)'
   },
-  top: {
+  bottom: {
     clip: 'rect(0px, 180px, 90px, 0px)'
   },
-  bottom: {
+  top: {
     clip: 'rect(90px, 180px, 180px, 0px)'
   }
 }))
@@ -76,15 +76,15 @@ const About: FC<IProps> = ({ title }) => {
         Markus Dethlefsen
       </Typography>
 
-      <div className={classes.portrait}>
-        <div className={classes.planet + ' ' + classes.bottom}></div>
-        <div className={classes.ring}></div>
-        <div className={classes.planet + ' ' + classes.top}></div>
-      </div>
-
       <Typography variant="body1" color="textSecondary" component="span">
         Senior Software Developer bei FFG Finanzcheck Finanzportale GmbH
       </Typography>
+
+      <div className={classes.portrait}>
+        <div className={classes.planet + ' ' + classes.top}></div>
+        <div className={classes.ring}></div>
+        <div className={classes.planet + ' ' + classes.bottom}></div>
+      </div>
     </Layout>
   )
 }

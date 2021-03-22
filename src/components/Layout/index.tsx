@@ -4,8 +4,8 @@ import Container from '@material-ui/core/Container'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import { makeStyles } from '@material-ui/core/styles'
 
-import Header from './Header'
-import Starfield from './Starfield'
+import Header from '../Header'
+import Starfield from '../Starfield'
 interface IProps {
   pageTitle: string
 }

@@ -2,7 +2,7 @@ import React, { useEffect, useState, ReactNode, CSSProperties } from 'react'
 import { AppProps } from 'next/app'
 
 import { ThemeProvider } from '../theme'
-import styles from '../theme/App.module.css'
+import './app.css'
 
 const MyApp = ({ Component, pageProps }: AppProps): ReactNode => {
   const [style, setStyle] = useState<CSSProperties>({
@@ -17,11 +17,9 @@ const MyApp = ({ Component, pageProps }: AppProps): ReactNode => {
   }, [])
 
   return (
-    <div className={styles['app-container']} style={style}>
+    <div style={style}>
       <ThemeProvider>
-        <div className={styles['content-container']}>
-          <Component {...pageProps} />
-        </div>
+        <Component {...pageProps} />
       </ThemeProvider>
     </div>
   )
