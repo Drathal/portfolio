@@ -14,26 +14,7 @@ const useStyles = makeStyles(() => ({
   title: {
     position: 'relative',
     color: '#c9eafd',
-    textShadow: '0px 2px 5px #000',
-    '& span:nth-child(1)': {
-      position: 'absolute',
-      top: '0x',
-      left: '0',
-      clipPath: 'polygon(0 45%, 100% 45%, 100% 60%, 0 60%)',
-      zIndex: 1,
-      color: '#a4dafa',
-      textShadow: 'none'
-    },
-    '& span:nth-child(2)': {
-      position: 'absolute',
-      top: '0',
-      left: '0',
-
-      clipPath: 'polygon(0 60%, 100% 60%, 100% 100%, 0 100%)',
-      zIndex: 1,
-      color: '#90d6ff',
-      textShadow: 'none'
-    }
+    textShadow: '0px 2px 5px #000'
   },
   portrait: {
     width: '400px',
@@ -92,9 +73,7 @@ const About: FC<IProps> = ({ title }) => {
   return (
     <Layout pageTitle={`${title} | About`}>
       <Typography variant="h3" component="h2" className={classes.title}>
-        <span aria-hidden="true">Markus Dethlefsen</span>
         Markus Dethlefsen
-        <span aria-hidden="true">Markus Dethlefsen</span>
       </Typography>
 
       <div className={classes.portrait}>

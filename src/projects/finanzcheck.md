@@ -4,20 +4,31 @@ subtitle: 'Senior Software Developer'
 year: '2019'
 ---
 
-FINANZCHECK.de is the fastest growing loan comparison portal in Germany. Around 370 employees are currently working with a lot of passion.
+- Further development and maintenance of all landing pages (javascript, next.js, contentful, aws-s3, aws-lambda)
+- Further development and maintenance of the frontend that fetches and displays credit results (typescript, react.js, go, kubernetes, aws-sns, aws-sqs)
+- Development and maintenance of a new product (typescript, type-orm, react, aws-lambda)
+- Development and maintenance a material-ui library
+- Fullfill the role of a process-lead
+- Fullfill the role of a tech-lead
 
 {{Docker}}
 {{Kubernetes}}
 {{node.js}}
 {{xSQL}}
-{{AWS}}
-{{Cognito}}
+{{AWS-Lamda}}
+{{AWS-S3}}
+{{AWS-Stepfunctions}}
+{{AWS-Cognito}}
+{{AWS-Codebuild}}
 {{Javascript}}
 {{Typescript}}
 {{React.js}}
+{{next.js}}
 {{HTML}}
 {{CSS}}
 {{TDD}}
 {{Microservices}}
 {{go}}
 {{Serverless}}
+{{Jenkins}}
+{{Github Actions}}
