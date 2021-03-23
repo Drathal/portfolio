@@ -1,9 +1,11 @@
 import matter from 'gray-matter'
+
+import nameFromPath from './nameFromPath'
 import { ProjectType } from '../types'
 
 export const slugsFromFilenames = (
   ctx: __WebpackModuleApi.RequireContext
-): string[] => ctx.keys().map((key) => key.replace(/^.*[\\/]/, '').slice(0, -3))
+): string[] => ctx.keys().map((key) => nameFromPath(key))
 
 interface ProjectContext {
   default: string
@@ -15,11 +17,13 @@ const sortProjectByYear = (a: ProjectType, b: ProjectType) =>
 export const projectListFromDirectory = (
   ctx: __WebpackModuleApi.RequireContext
 ): ProjectType[] => {
+  console.log(ctx)
+
   const keys = ctx.keys()
   const values = keys.map(ctx) as ProjectContext[]
 
   const data = keys.map((key, index) => {
-    const slug = key.replace(/^.*[\\/]/, '').slice(0, -3)
+    const slug = nameFromPath(key)
     const value = values[index]
     const document = matter(value.default)
 
