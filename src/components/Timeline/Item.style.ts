@@ -1,5 +1,4 @@
 import { makeStyles } from '@material-ui/core'
-import { pillsStyle } from '../../theme/pills.style'
 
 export const useStyles = makeStyles((theme) => ({
   root: {
@@ -53,12 +52,5 @@ export const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down('sm')]: {
       padding: '0.5rem 0'
     }
-  },
-  year: {
-    margin: '0.75rem 0 0.5rem 0'
-  },
-  cardMedia: {
-    height: 300
-  },
-  pill: pillsStyle()
+  }
 }))

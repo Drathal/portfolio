@@ -12,13 +12,10 @@ interface IProps {
   projects: ProjectType[]
 }
 
-const Index: FC<IProps> = ({ projects, title, description }) => {
+const Index: FC<IProps> = ({ projects, title }) => {
   return (
     <Layout pageTitle={title}>
-      <p>{description}</p>
-      <main>
-        <ProjectList projects={projects} />
-      </main>
+      <ProjectList projects={projects} />
     </Layout>
   )
 }

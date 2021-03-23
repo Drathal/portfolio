@@ -34,8 +34,6 @@ const Layout: FC<IProps> = ({ children, pageTitle }) => {
       <Container fixed className={classes.container}>
         {children}
       </Container>
-
-      <footer></footer>
     </>
   )
 }
