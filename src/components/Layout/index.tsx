@@ -4,7 +4,7 @@ import Container from '@material-ui/core/Container'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import { makeStyles } from '@material-ui/core/styles'
 
-import Header from '../Header'
+import Header from '../Header/Header'
 import Starfield from '../Starfield'
 interface IProps {
   pageTitle: string
@@ -34,6 +34,8 @@ const Layout: FC<IProps> = ({ children, pageTitle }) => {
       <Container fixed className={classes.container}>
         {children}
       </Container>
+
+      <footer></footer>
     </>
   )
 }

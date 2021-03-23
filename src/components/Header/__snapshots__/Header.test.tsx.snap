@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Header /> it can render 1`] = `
+<nav
+  class="nav"
+>
+  <header
+    class="MuiPaper-root MuiAppBar-root makeStyles-appBar-2 MuiAppBar-positionFixed MuiAppBar-colorPrimary mui-fixed MuiPaper-elevation4"
+  >
+    <div
+      class="MuiContainer-root MuiContainer-fixed MuiContainer-maxWidthLg"
+    >
+      <div
+        class="MuiToolbar-root MuiToolbar-regular makeStyles-toolbar-4 MuiToolbar-gutters"
+      >
+        <h6
+          class="MuiTypography-root makeStyles-title-1 MuiTypography-h6"
+        >
+          <a
+            href="/"
+          >
+            Markus Dethlefsen
+          </a>
+        </h6>
+        <button
+          class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-colorInherit"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="MuiButton-label"
+          >
+            <a
+              href="/"
+            >
+              Timeline
+            </a>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+        <button
+          class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-colorInherit"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="MuiButton-label"
+          >
+            <a
+              href="/about"
+            >
+              About
+            </a>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+      </div>
+    </div>
+  </header>
+  <div
+    class="MuiToolbar-root MuiToolbar-regular MuiToolbar-gutters"
+    id="back-to-top-anchor"
+  />
+</nav>
+`;

@@ -1,0 +1,127 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<About /> it can render 1`] = `
+<div>
+  <div
+    class="makeStyles-bg-2"
+  >
+    <div
+      class="makeStyles-star1-3"
+    />
+    <div
+      class="makeStyles-star2-4"
+    />
+    <div
+      class="makeStyles-star3-5"
+    />
+  </div>
+  <meta
+    content="width=device-width, initial-scale=1"
+    name="viewport"
+  />
+  <title>
+    title
+  </title>
+  <nav
+    class="nav"
+  >
+    <header
+      class="MuiPaper-root MuiAppBar-root makeStyles-appBar-8 MuiAppBar-positionFixed MuiAppBar-colorPrimary mui-fixed MuiPaper-elevation4"
+    >
+      <div
+        class="MuiContainer-root MuiContainer-fixed MuiContainer-maxWidthLg"
+      >
+        <div
+          class="MuiToolbar-root MuiToolbar-regular makeStyles-toolbar-10 MuiToolbar-gutters"
+        >
+          <h6
+            class="MuiTypography-root makeStyles-title-7 MuiTypography-h6"
+          >
+            <a
+              href="/"
+            >
+              Markus Dethlefsen
+            </a>
+          </h6>
+          <button
+            class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-colorInherit"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              class="MuiButton-label"
+            >
+              <a
+                href="/"
+              >
+                Timeline
+              </a>
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+          <button
+            class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-colorInherit"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              class="MuiButton-label"
+            >
+              <a
+                href="/about"
+              >
+                About
+              </a>
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+        </div>
+      </div>
+    </header>
+    <div
+      class="MuiToolbar-root MuiToolbar-regular MuiToolbar-gutters"
+      id="back-to-top-anchor"
+    />
+  </nav>
+  <div
+    class="makeStyles-rootZoom-9"
+    role="presentation"
+    style="transform: scale(0); visibility: hidden;"
+  >
+    <button
+      aria-label="scroll back to top"
+      class="MuiButtonBase-root MuiFab-root MuiFab-sizeSmall MuiFab-secondary"
+      tabindex="0"
+      type="button"
+    >
+      <span
+        class="MuiFab-label"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"
+          />
+        </svg>
+      </span>
+      <span
+        class="MuiTouchRipple-root"
+      />
+    </button>
+  </div>
+  <div
+    class="MuiContainer-root makeStyles-container-1 MuiContainer-fixed MuiContainer-maxWidthLg"
+  >
+    child
+  </div>
+  <footer />
+</div>
+`;
