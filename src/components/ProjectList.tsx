@@ -2,7 +2,7 @@ import { FC } from 'react'
 import Timeline from '@material-ui/lab/Timeline'
 import { makeStyles } from '@material-ui/core/styles'
 
-import { ProjectType } from '../types'
+import { ProjectType } from '../utils'
 import { Item } from './Timeline'
 
 interface IProps {
@@ -21,23 +21,22 @@ const ProjectList: FC<IProps> = ({ projects }) => {
 
   return (
     <Timeline align="alternate" className={classes.root}>
-      {projects &&
-        projects.map((project) => {
-          return (
-            <Item
-              key={project.slug}
-              {...{
-                slug: project.slug,
-                year: project.frontmatter.year,
-                link: project.frontmatter.link,
-                title: project.frontmatter.title,
-                subtitle: project.frontmatter.subtitle,
-                markdownBody: project.markdownBody,
-                thumb: project.frontmatter.thumb
-              }}
-            />
-          )
-        })}
+      {projects.map((project) => {
+        return (
+          <Item
+            key={project.meta.slug}
+            {...{
+              slug: project.meta.slug,
+              year: project.meta.year,
+              link: project.meta.link,
+              title: project.meta.title,
+              subtitle: project.meta.subtitle,
+              markdownBody: project.markdown,
+              thumb: project.meta.thumb
+            }}
+          />
+        )
+      })}
     </Timeline>
   )
 }

@@ -1,40 +1,48 @@
 import matter from 'gray-matter'
+import { pipe } from 'fp-ts/lib/function'
 
 import nameFromPath from './nameFromPath'
-import { ProjectType } from '../types'
+
+export interface ProjectMeta {
+  link?: string
+  thumb: string
+  year: string
+  subtitle: string
+  title: string
+  slug: string
+}
+export interface ProjectType {
+  meta: ProjectMeta
+  markdown: string
+  key: string
+}
 
 export const slugsFromFilenames = (
   ctx: __WebpackModuleApi.RequireContext
 ): string[] => ctx.keys().map((key) => nameFromPath(key))
 
-interface ProjectContext {
-  default: string
-}
+const getValues = (ctx: __WebpackModuleApi.RequireContext) =>
+  ctx.keys().map((name) => ({ markdown: ctx(name).default, key: name }))
+
+const addSlug = (projects: ProjectType[]) =>
+  projects.map((data) => ({ ...data, meta: { slug: nameFromPath(data.key) } }))
 
 const sortProjectByYear = (a: ProjectType, b: ProjectType) =>
-  a.frontmatter.year < b.frontmatter.year ? 1 : -1
+  a.meta.year < b.meta.year ? 1 : -1
 
-export const projectListFromDirectory = (
-  ctx: __WebpackModuleApi.RequireContext
-): ProjectType[] => {
-  console.log(ctx)
-
-  const keys = ctx.keys()
-  const values = keys.map(ctx) as ProjectContext[]
-
-  const data = keys.map((key, index) => {
-    const slug = nameFromPath(key)
-    const value = values[index]
-    const document = matter(value.default)
-
+const addFrontmatter = (projects: ProjectType[]) =>
+  projects.map((data) => {
+    const frontmatter = matter(data.markdown)
     return {
-      frontmatter: document.data,
-      markdownBody: document.content,
-      slug
-    } as ProjectType
+      ...data,
+      markdown: frontmatter.content,
+      meta: { ...data.meta, ...frontmatter.data }
+    }
   })
 
-  data.sort(sortProjectByYear)
+const sortProjects = (projects) => projects.sort(sortProjectByYear)
 
-  return data
+export const getProjectData = async (): Promise<void> => {
+  const ctx = require.context('../projects', true, /\.md$/)
+  return pipe(ctx, getValues, addSlug, addFrontmatter, sortProjects)
 }

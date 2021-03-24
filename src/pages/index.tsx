@@ -1,10 +1,9 @@
 import { FC } from 'react'
 import { GetStaticProps } from 'next'
 
-import { projectListFromDirectory } from '../utils'
+import { getProjectData, ProjectType } from '../utils'
 import Layout from '../components/Layout'
 import ProjectList from '../components/ProjectList'
-import { ProjectType } from '../types'
 
 interface IProps {
   title: string
@@ -23,16 +22,14 @@ const Index: FC<IProps> = ({ projects, title }) => {
 export default Index
 
 export const getStaticProps: GetStaticProps = async () => {
+  const projects = await getProjectData()
   const configData = await import(`../../siteconfig.json`)
-  const projects = projectListFromDirectory(
-    require.context('../projects', true, /\.md$/)
-  )
 
   return {
     props: {
-      projects,
       title: configData.default.title,
-      description: configData.default.description
+      description: configData.default.description,
+      projects: projects
     }
   }
 }
