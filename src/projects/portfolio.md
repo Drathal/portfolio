@@ -2,6 +2,7 @@
 title: 'Portfolio'
 subtitle: 'This Website'
 year: '2021'
+thumb: 'portfolio.png'
 link: '//github.com/Drathal/portfolio'
 ---
 
