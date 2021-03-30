@@ -1,15 +1,12 @@
-import { APIGatewayEvent, APIGatewayProxyResult, Context } from 'aws-lambda'
+import { APIGatewayEvent, APIGatewayProxyResult } from 'aws-lambda'
 import dotenv from 'dotenv'
 
 dotenv.config()
 
 export const handler = async (
-  event: APIGatewayEvent,
-  context: Context
+  event: APIGatewayEvent
 ): Promise<APIGatewayProxyResult> => {
   const { msg } = event.queryStringParameters
-
-  console.log(context)
 
   if (msg !== process.env.PASSWORD) {
     return {

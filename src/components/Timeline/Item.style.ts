@@ -29,11 +29,8 @@ export const useStyles = makeStyles((theme) => ({
     }
   },
   content: {
-    minHeight: '300px',
-    marginBottom: '4rem',
-
+    margin: '0 0 3rem',
     [theme.breakpoints.down('sm')]: {
-      minHeight: 'auto',
       padding: '0.5rem 0',
       textAlign: 'left'
     },
@@ -48,7 +45,7 @@ export const useStyles = makeStyles((theme) => ({
     }
   },
   contentCard: {
-    margin: '1rem 0 0',
+    margin: '1rem 0 3rem',
     [theme.breakpoints.down('sm')]: {
       padding: '0.5rem 0'
     }

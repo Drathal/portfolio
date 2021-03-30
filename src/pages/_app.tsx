@@ -1,10 +1,12 @@
 import React, { useEffect, useState, ReactNode, CSSProperties } from 'react'
+import { QueryClient, QueryClientProvider } from 'react-query'
 import { AppProps } from 'next/app'
 
 import { ThemeProvider } from '../theme'
 import './app.css'
 
 const MyApp = ({ Component, pageProps }: AppProps): ReactNode => {
+  const queryClient = new QueryClient()
   const [style, setStyle] = useState<CSSProperties>({
     visibility: 'hidden'
   })
@@ -19,7 +21,9 @@ const MyApp = ({ Component, pageProps }: AppProps): ReactNode => {
   return (
     <div style={style}>
       <ThemeProvider>
-        <Component {...pageProps} />
+        <QueryClientProvider client={queryClient}>
+          <Component {...pageProps} />
+        </QueryClientProvider>
       </ThemeProvider>
     </div>
   )
