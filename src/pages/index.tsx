@@ -19,7 +19,6 @@ const Index: FC<IProps> = ({ projects, title }) => {
 
   return (
     <Layout pageTitle={title}>
-      {JSON.stringify({ query })}
       <ProjectList projects={projects} showDetails={data?.auth} />
     </Layout>
   )
