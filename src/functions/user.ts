@@ -6,23 +6,23 @@ dotenv.config()
 export const handler = async (
   event: APIGatewayEvent
 ): Promise<APIGatewayProxyResult> => {
-  const { msg } = event.queryStringParameters
+  const msg = event?.queryStringParameters?.msg
 
-  if (msg !== process.env.PASSWORD) {
+  if (msg === process.env.PASSWORD) {
     return {
-      statusCode: 401,
+      statusCode: 200,
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ auth: false })
+      body: JSON.stringify({ auth: true })
     }
   }
 
   return {
-    statusCode: 200,
+    statusCode: 401,
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({ auth: true })
+    body: JSON.stringify({ auth: false })
   }
 }
