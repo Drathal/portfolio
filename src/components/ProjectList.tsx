@@ -7,7 +7,6 @@ import { Item } from './Timeline'
 
 interface IProps {
   projects: ProjectType[]
-  showDetails: boolean
 }
 
 const useStyles = makeStyles(() => ({
@@ -16,7 +15,7 @@ const useStyles = makeStyles(() => ({
   }
 }))
 
-const ProjectList: FC<IProps> = ({ projects, showDetails }) => {
+const ProjectList: FC<IProps> = ({ projects }) => {
   const classes = useStyles()
 
   if (!projects) return null
@@ -24,20 +23,16 @@ const ProjectList: FC<IProps> = ({ projects, showDetails }) => {
   return (
     <Timeline align="alternate" className={classes.root}>
       {projects.map((project) => {
-        const hideJobDetails = !showDetails && !project.meta.link
-        const markdownBody = hideJobDetails ? '' : project.markdown
-        const link = hideJobDetails ? null : project.meta.link
-
         return (
           <Item
             key={project.meta.slug}
             {...{
               slug: project.meta.slug,
               year: project.meta.year,
-              link,
+              link: project.markdown ? project.meta.link : null,
               title: project.meta.title,
               subtitle: project.meta.subtitle,
-              markdownBody,
+              markdownBody: project.markdown,
               thumb: project.meta.thumb
             }}
           />

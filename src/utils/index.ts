@@ -40,9 +40,32 @@ const addFrontmatter = (projects: ProjectType[]) =>
     }
   })
 
-const sortProjects = (projects) => projects.sort(sortProjectByYear)
+const sortProjects = (projects: ProjectType[]) =>
+  projects.sort(sortProjectByYear)
 
-export const getProjectData = async (): Promise<void> => {
+const filterProjectData = (fullData: boolean) => (projects: ProjectType[]) =>
+  projects.map((data) => ({
+    ...data,
+    markdown: fullData || data.meta.thumb ? data.markdown : ''
+  }))
+
+interface GetProjectData {
+  full?: boolean
+}
+
+export const getProjectData = async ({
+  full
+}: GetProjectData): Promise<ProjectType[]> => {
   const ctx = require.context('../projects', true, /\.md$/)
-  return pipe(ctx, getValues, addSlug, addFrontmatter, sortProjects)
+
+  const projects = pipe(
+    ctx,
+    getValues,
+    addSlug,
+    addFrontmatter,
+    sortProjects,
+    filterProjectData(full)
+  )
+
+  return projects
 }
