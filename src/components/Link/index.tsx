@@ -2,7 +2,7 @@ import { FC } from 'react'
 import Link from 'next/link'
 
 interface IProps {
-  to?: string
+  to?: string | null
 }
 
 /**

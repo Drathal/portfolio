@@ -18,6 +18,7 @@ const useStyles = makeStyles(() => ({
 
 const ProjectList: FC<IProps> = ({ projects, showDetails }) => {
   const classes = useStyles()
+
   if (!projects) return null
 
   return (
@@ -25,6 +26,7 @@ const ProjectList: FC<IProps> = ({ projects, showDetails }) => {
       {projects.map((project) => {
         const hideJobDetails = !showDetails && !project.meta.link
         const markdownBody = hideJobDetails ? '' : project.markdown
+        const link = hideJobDetails ? null : project.meta.link
 
         return (
           <Item
@@ -32,7 +34,7 @@ const ProjectList: FC<IProps> = ({ projects, showDetails }) => {
             {...{
               slug: project.meta.slug,
               year: project.meta.year,
-              link: project.meta.link,
+              link,
               title: project.meta.title,
               subtitle: project.meta.subtitle,
               markdownBody,

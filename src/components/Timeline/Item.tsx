@@ -14,7 +14,7 @@ import { Content } from './Content/Content'
 
 interface IProps {
   slug: string
-  link?: string
+  link?: string | null
   year: string
   title: string
   subtitle: string
@@ -33,7 +33,11 @@ export const Item: FC<IProps> = ({
 }) => {
   const classes = useStyles()
   const thumbnail = thumb && `${config.path.thumbnail}${thumb}`
-  const projectLink = link ? link : `${config.path.project}${slug}`
+  const projectLink = link
+    ? link
+    : link === null
+    ? null
+    : `${config.path.project}${slug}`
 
   return (
     <TimelineItem className={classes.root}>

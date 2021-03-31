@@ -7,11 +7,12 @@ interface UseAuth {
   data: AuthData
 }
 
-export const useAuth = (password: string): UseAuth => {
-  const { isLoading, error, data } = useQuery('fetch', async () => {
+export const useAuth = (password: string): UseAuth =>
+  useQuery(['fetchAuth', password], async () => {
+    if (!password) {
+      return { auth: false }
+    }
+
     const response = await authRequest(password)
     return response.data || { auth: false }
   })
-
-  return { isLoading, error, data }
-}

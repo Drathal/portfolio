@@ -15,11 +15,11 @@ interface IProps {
 
 const Index: FC<IProps> = ({ projects, title }) => {
   const { query } = useRouter()
-  const { data } = useAuth(`${query?.code}`)
+  const { data } = useAuth(`${query?.code || ''}`)
 
   return (
     <Layout pageTitle={title}>
-      <ProjectList projects={projects} showDetails={data?.auth} />
+      <ProjectList projects={projects} showDetails={data?.auth || false} />
     </Layout>
   )
 }
