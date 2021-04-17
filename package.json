@@ -9,7 +9,6 @@
     "build": "npm run build:lambda && next build ",
     "build:lambda": "tsc -p src/functions/tsconfig.json",
     "start": "next start",
-    "export": "next export",
     "lint": "eslint --ext .ts --ext .tsx './'",
     "test": "jest"
   },
