@@ -8,5 +8,8 @@
   to = "/.netlify/functions/:splat"
   status = 200
 
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
 [dev]
   port = 4000
